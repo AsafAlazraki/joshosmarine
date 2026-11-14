@@ -47,7 +47,13 @@
     <p class="code">ERROR 404</p>
     <h1>Lost at sea.</h1>
     <p>That page has drifted off, or never existed. The rest of the site is still tied up safely at the ramp.</p>
-    <a href="/">Back to Joshos Marine</a>
+    <a href="/" id="home">Back to Joshos Marine</a>
   </main>
+  <script>
+    // On a github.io project address the site lives one folder down from the root.
+    if (/\.github\.io$/.test(location.hostname)) {
+      document.getElementById('home').href = '/' + location.pathname.split('/')[1] + '/';
+    }
+  </script>
 </body>
 </html>

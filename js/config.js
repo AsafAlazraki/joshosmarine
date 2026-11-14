@@ -9,13 +9,13 @@
 window.JOSHOS = {
   /* --- Contact details ---------------------------------------------------- */
 
-  // TODO: replace with the real number. `phone` is how it's displayed,
-  // `phoneLink` is the same number in international format for tap-to-call.
-  phone: "0400 000 000",
-  phoneLink: "+61400000000",
+  // `phone` is how the number is displayed, `phoneLink` is the same number
+  // in international format for tap-to-call and tap-to-text.
+  phone: "0423 417 906",
+  phoneLink: "+61423417906",
 
-  // TODO: replace with the address booking requests should go to.
-  email: "bookings@example.com",
+  // Where booking requests are sent.
+  email: "joshosmarine@gmail.com",
 
   // Where you work, e.g. "Gold Coast & Northern Rivers". Leave "" to hide it.
   area: "",

@@ -11,8 +11,8 @@ Everything below lives in [`js/config.js`](js/config.js). Change it there and th
 
 | Setting | Currently | What to do |
 | --- | --- | --- |
-| `phone` / `phoneLink` | `0400 000 000` (placeholder) | Put in the real number |
-| `email` | `bookings@example.com` (placeholder) | Put in the real address |
+| `phone` / `phoneLink` | set | Change here if the number changes |
+| `email` | set | Change here if the address changes |
 | `formEndpoint` | empty | Connect a form service (see below) |
 | `area`, `hours`, `abn`, `facebook`, `instagram` | empty or generic | Fill in; anything left empty is hidden |
 
@@ -45,6 +45,11 @@ then visit <http://localhost:4173>.
 
 Any static host works (GitHub Pages, Cloudflare Pages, Netlify). Point it at the repository
 root with no build command.
+
+For GitHub Pages: **Settings → Pages → Build and deployment → Deploy from a branch**, choose
+`main` and `/ (root)`, then save. The site appears at `https://<owner>.github.io/joshosmarine/`
+within a minute or two and redeploys on every push. A custom domain can be added on the same
+settings page later; all links in the site are relative, so nothing needs changing when it moves.
 
 ## What's where
 
