@@ -5,16 +5,18 @@ Website for Joshos Marine: 12V installs, servicing, trailer work and custom fit-
 It is a plain static site. There is no build step and nothing to install: the files in this
 repository are exactly what gets served.
 
-## Before going live
+## Settings
 
 Everything below lives in [`js/config.js`](js/config.js). Change it there and the whole site updates.
 
-| Setting | Currently | What to do |
-| --- | --- | --- |
-| `phone` / `phoneLink` | set | Change here if the number changes |
-| `email` | set | Change here if the address changes |
-| `formEndpoint` | empty | Connect a form service (see below) |
-| `area`, `hours`, `abn`, `facebook`, `instagram` | empty or generic | Fill in; anything left empty is hidden |
+| Setting | What it does |
+| --- | --- |
+| `phone` / `phoneLink` | The number shown and dialled |
+| `email` | The address shown on the site, and the fallback for the forms |
+| `hours`, `hoursForSearch` | Opening hours as displayed, and in the form search engines read |
+| `abn` | Shown in the footer |
+| `area`, `facebook`, `instagram` | Optional; anything left empty is hidden |
+| `formEndpoint`, `formExtraFields` | Where the forms send to (see below) |
 
 The wording on the page (services, FAQ answers, the "Why Joshos" section) is draft copy.
 Read it through and change anything that doesn't match how the business actually runs.
@@ -24,13 +26,13 @@ Read it through and change anything that doesn't match how the business actually
 There are two forms: the **Booking request** form (every "Book a job" button jumps straight to it)
 and the short **Request a call back** form.
 
-- **With `formEndpoint` set**, requests are posted to that address as JSON and the customer
-  sees a confirmation on the page. [Formspree](https://formspree.io) and
-  [Web3Forms](https://web3forms.com) both work; each gives you an address to paste in, and
-  Web3Forms also needs its key in `formExtraFields`.
-- **With `formEndpoint` empty**, the forms open the customer's own email app with the
-  details already written out. It works with no setup, but it relies on the customer
-  pressing send, so connecting a form service is worth the two minutes.
+Both post to [FormSubmit](https://formsubmit.co), a free form-to-email service that needs no
+account, which emails each request to the address at the end of `formEndpoint`. The first
+request sent to a new address makes FormSubmit email that address an **Activate Form** link;
+nothing is delivered until it is clicked once.
+
+If the service is unreachable or refuses a request, the form falls back to opening the
+customer's own email app with the details already written out, so a request is never lost.
 
 ## Previewing
 

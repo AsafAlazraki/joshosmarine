@@ -22,11 +22,15 @@ window.JOSHOS = {
 
   // Opening hours, one [label, value] pair per row. Leave [] to hide them.
   hours: [
-    ["Bookings", "By appointment"],
+    ["Mon – Fri", "8am – 5pm"],
+    ["Sat – Sun", "Closed"],
   ],
 
-  // Shown in the footer when filled in, e.g. "12 345 678 901".
-  abn: "",
+  // The same hours in the short form search engines read. Leave [] to skip.
+  hoursForSearch: ["Mo-Fr 08:00-17:00"],
+
+  // Shown in the footer.
+  abn: "92 623 093 122",
 
   // Full profile URLs. Leave "" to hide the icon.
   facebook: "",
@@ -34,17 +38,18 @@ window.JOSHOS = {
 
   /* --- Booking forms ------------------------------------------------------ */
 
-  // Paste a form endpoint here and booking requests are delivered straight
-  // to your inbox without the customer leaving the page. Any service that
-  // accepts a JSON POST works, for example:
-  //   Formspree  ->  "https://formspree.io/f/xxxxxxxx"
-  //   Web3Forms  ->  "https://api.web3forms.com/submit"  (also set formExtraFields)
+  // Where the forms post to. Requests are emailed to the address in the URL
+  // by FormSubmit (formsubmit.co), a free form-to-email service with no
+  // account. To send somewhere else, change the address here; the first
+  // request after a change triggers a one-off "Activate Form" email to the
+  // new address.
   //
-  // While this is "", the forms fall back to opening the customer's own
-  // email app with the booking details already written out.
-  formEndpoint: "",
+  // Formspree works as a drop-in alternative ("https://formspree.io/f/xxxx").
+  // If this is "", or the service ever fails, the forms fall back to opening
+  // the customer's own email app with the details already written out.
+  formEndpoint: "https://formsubmit.co/ajax/joshosmarine@gmail.com",
 
-  // Extra fields some form services need, e.g. { access_key: "your-key" }
-  // for Web3Forms. Leave {} for Formspree.
-  formExtraFields: {},
+  // Extra settings sent with each request. For FormSubmit: lay the email out
+  // as a table, and skip its captcha page (the form has its own spam trap).
+  formExtraFields: { _template: "table", _captcha: "false" },
 };

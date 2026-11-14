@@ -66,6 +66,8 @@
     };
     if (cfg.email) data.email = cfg.email;
     if (cfg.area) data.areaServed = cfg.area;
+    if (cfg.abn) data.taxID = cfg.abn.replace(/\s+/g, '');
+    if (cfg.hoursForSearch && cfg.hoursForSearch.length) data.openingHours = cfg.hoursForSearch;
     var same = [cfg.facebook, cfg.instagram].filter(Boolean);
     if (same.length) data.sameAs = same;
     var tag = doc.createElement('script');
@@ -266,30 +268,37 @@
     return { subject: subject, text: text };
   }
 
+  /* Hands the request to the visitor's own email app, addressed and filled in. */
+  function viaEmailApp(msg) {
+    if (!cfg.email) throw new Error('No email address configured');
+    location.href = 'mailto:' + cfg.email + '?subject=' + encodeURIComponent(msg.subject) + '&body=' + encodeURIComponent(msg.text);
+    return { mode: 'mailto', text: msg.text };
+  }
+
   function deliver(form, data) {
     var msg = buildMessage(form, data);
+    if (!cfg.formEndpoint) return Promise.resolve().then(function () { return viaEmailApp(msg); });
 
-    if (cfg.formEndpoint) {
-      var payload = { subject: msg.subject, _subject: msg.subject, form: form.getAttribute('data-form') };
-      Object.keys(cfg.formExtraFields || {}).forEach(function (k) { payload[k] = cfg.formExtraFields[k]; });
-      ORDER.forEach(function (k) { if (data[k]) payload[LABELS[k]] = data[k]; });
-      if (data.email) payload.email = data.email;
-      payload.message = msg.text;
-      return fetch(cfg.formEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload)
-      }).then(function (res) {
-        if (!res.ok) throw new Error('Form endpoint responded ' + res.status);
+    var payload = {};
+    ORDER.forEach(function (k) { if (data[k]) payload[LABELS[k]] = data[k]; });
+    payload._subject = msg.subject;
+    if (data.email) payload._replyto = data.email;
+    Object.keys(cfg.formExtraFields || {}).forEach(function (k) { payload[k] = cfg.formExtraFields[k]; });
+
+    return fetch(cfg.formEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      return res.json().catch(function () { return {}; }).then(function (body) {
+        // Some services answer 200 with success:false (e.g. not yet activated).
+        if (!res.ok || body.success === false || body.success === 'false') throw new Error('Form service did not accept the request');
         return { mode: 'sent', text: msg.text };
       });
-    }
-
-    // No endpoint configured: hand the details to the visitor's email app.
-    if (cfg.email) {
-      location.href = 'mailto:' + cfg.email + '?subject=' + encodeURIComponent(msg.subject) + '&body=' + encodeURIComponent(msg.text);
-    }
-    return Promise.resolve({ mode: 'mailto', text: msg.text });
+    }).catch(function () {
+      // Never lose a request: if the service is down or refuses, use the email app instead.
+      return viaEmailApp(msg);
+    });
   }
 
   function initForm(form) {
