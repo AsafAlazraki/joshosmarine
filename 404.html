@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found — Joshos Marine</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#06182a">
+  <style>
+    /* Self-contained on purpose: this page can be served from any URL depth. */
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      display: grid; place-items: center; padding: 2rem;
+      background: radial-gradient(70% 60% at 70% 30%, #123757, transparent 70%), #06182a;
+      color: #dbe7f0; text-align: center;
+      font: 1.0625rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { max-width: 34rem; }
+    svg { width: 72px; height: 72px; color: #ff6a2a; }
+    p.code { margin: 1.5rem 0 0; font: 500 .75rem/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing: .2em; color: #97e6dc; }
+    h1 {
+      margin: .6rem 0 0; color: #fff; text-transform: uppercase; line-height: .9;
+      font: 900 clamp(3.5rem, 16vw, 7rem)/.9 "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
+    }
+    p { margin: 1.25rem 0 0; color: #9ab0c3; }
+    a {
+      display: inline-block; margin-top: 2rem; padding: .9rem 1.5rem; border-radius: 12px;
+      background: #ff6a2a; color: #06182a; font-weight: 800; letter-spacing: .06em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    a:hover { background: #ff8a4c; }
+    a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <svg viewBox="0 0 48 48" aria-hidden="true">
+      <circle cx="24" cy="24" r="21.5" fill="none" stroke="currentColor" stroke-width="3"/>
+      <g fill="currentColor">
+        <path id="b" d="M24 24c-5.6-4.2-6.6-11.4-2.2-16.4 5.4 2.4 7.4 9.8 2.2 16.4z"/>
+        <use href="#b" transform="rotate(120 24 24)"/>
+        <use href="#b" transform="rotate(240 24 24)"/>
+        <circle cx="24" cy="24" r="3.4"/>
+      </g>
+    </svg>
+    <p class="code">ERROR 404</p>
+    <h1>Lost at sea.</h1>
+    <p>That page has drifted off, or never existed. The rest of the site is still tied up safely at the ramp.</p>
+    <a href="/">Back to Joshos Marine</a>
+  </main>
+</body>
+</html>
