@@ -146,7 +146,8 @@ button { cursor: pointer; }
   width: 100%;
   max-width: calc(var(--maxw) + var(--gutter) * 2);
   margin-inline: auto;
-  padding-inline: var(--gutter);
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
 }
 
 .icon {
@@ -320,6 +321,7 @@ button { cursor: pointer; }
 
 .site-header {
   position: fixed; inset: 0 0 auto 0; z-index: 100;
+  padding-top: env(safe-area-inset-top, 0px);
   color: #fff;
   transition: background-color .3s, box-shadow .3s, backdrop-filter .3s;
 }
