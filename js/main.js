@@ -234,9 +234,9 @@
     control.setAttribute('aria-describedby', id);
   }
 
-  /* Validates every control inside `scope`; returns the first invalid one. */
+  /* Validates every control inside `scope`; returns the invalid one nearest the top. */
   function validate(scope) {
-    var firstBad = null;
+    var bad = [];
 
     $$('[data-required-group]', scope).forEach(function (group) {
       var name = group.getAttribute('data-required-group');
@@ -244,7 +244,7 @@
       var msg = $('[data-group-error="' + name + '"]', scope);
       group.classList.toggle('is-invalid', !ok);
       if (msg) { msg.hidden = ok; msg.textContent = ok ? '' : group.getAttribute('data-error'); }
-      if (!ok && !firstBad) firstBad = $('input', group);
+      if (!ok) bad.push($('input', group));
     });
 
     $$('input, select, textarea', scope).forEach(function (control) {
@@ -252,10 +252,11 @@
       if (control.value) control.value = control.value.trim() === '' ? '' : control.value;
       var ok = control.checkValidity();
       fieldError(control, ok ? '' : (control.getAttribute('data-error') || control.validationMessage));
-      if (!ok && !firstBad) firstBad = control;
+      if (!ok) bad.push(control);
     });
 
-    return firstBad;
+    bad.sort(function (a, b) { return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1; });
+    return bad[0] || null;
   }
 
   function buildMessage(form, data) {
@@ -297,68 +298,14 @@
     var status = $('[data-status]', form);
     var submitBtn = $('[data-submit]', form);
     var submitLabel = $('[data-submit-label]', form);
-    var steps = $$('[data-step]', form);
-    var stepperItems = $$('[data-stepper]', form);
-    var current = 0;
     var lastText = '';
     var idleLabel = submitLabel ? submitLabel.textContent : '';
-
-    function showStep(index, focus) {
-      current = Math.max(0, Math.min(index, steps.length - 1));
-      steps.forEach(function (step, i) { step.classList.toggle('is-active', i === current); });
-      stepperItems.forEach(function (item, i) {
-        item.classList.toggle('is-current', i === current);
-        item.classList.toggle('is-done', i < current);
-        if (i === current) item.setAttribute('aria-current', 'step'); else item.removeAttribute('aria-current');
-      });
-      if (current === steps.length - 1) renderSummary();
-      if (focus) {
-        var legend = $('.step__legend', steps[current]);
-        if (legend) legend.focus({ preventScroll: true });
-        var top = wrap.getBoundingClientRect().top;
-        if (top < 80 || top > window.innerHeight * 0.6) {
-          window.scrollTo({ top: window.scrollY + top - 96, behavior: reduceMotion ? 'auto' : 'smooth' });
-        }
-      }
-    }
-
-    function renderSummary() {
-      var box = $('[data-summary]', form);
-      var list = $('[data-summary-list]', form);
-      if (!box || !list) return;
-      var data = collect(form);
-      var rows = [
-        ['Job', data.services],
-        ['Boat', [data.boat, data.length, data.motor].filter(Boolean).join(' · ')],
-        ['Where', [data.location, data.suburb].filter(Boolean).join(' · ')],
-        ['When', [data.date, data.time].filter(Boolean).join(' · ')]
-      ].filter(function (row) { return row[1]; });
-      list.textContent = '';
-      rows.forEach(function (row) {
-        var dt = doc.createElement('dt'); dt.textContent = row[0];
-        var dd = doc.createElement('dd'); dd.textContent = row[1];
-        list.appendChild(dt); list.appendChild(dd);
-      });
-      box.hidden = !rows.length;
-    }
 
     function setStatus(html) {
       if (!status) return;
       status.hidden = !html;
       status.className = 'form__status' + (html ? ' is-error' : '');
       status.innerHTML = html || '';
-    }
-
-    function goNext() {
-      var bad = validate(steps[current]);
-      if (bad) { bad.focus(); return; }
-      showStep(current + 1, true);
-    }
-
-    if (steps.length) {
-      showStep(0, false);
-      $$('[data-next]', form).forEach(function (btn) { btn.addEventListener('click', goNext); });
-      $$('[data-prev]', form).forEach(function (btn) { btn.addEventListener('click', function () { showStep(current - 1, true); }); });
     }
 
     // Clear an error as soon as the visitor starts fixing it.
@@ -373,18 +320,7 @@
       e.preventDefault();
       setStatus('');
 
-      // Pressing Enter on an earlier step moves forward instead of submitting.
-      if (steps.length && current < steps.length - 1) { goNext(); return; }
-
-      var bad = null;
-      if (steps.length) {
-        for (var i = 0; i < steps.length; i++) {
-          bad = validate(steps[i]);
-          if (bad) { showStep(i, false); break; }
-        }
-      } else {
-        bad = validate(form);
-      }
+      var bad = validate(form);
       if (bad) { bad.focus(); return; }
 
       var data = collect(form);
@@ -447,11 +383,11 @@
         $$('.field__error', form).forEach(function (el) { if (el.hasAttribute('data-group-error')) el.hidden = true; else el.remove(); });
         done.hidden = true;
         form.hidden = false;
-        if (steps.length) showStep(0, true);
+        var top = wrap.getBoundingClientRect().top;
+        if (top < 80) window.scrollTo({ top: window.scrollY + top - 96, behavior: reduceMotion ? 'auto' : 'smooth' });
       });
     }
 
-    return { showStep: showStep };
   }
 
   function forms() {
@@ -461,11 +397,11 @@
 
     var booking = null;
     $$('form[data-form]').forEach(function (form) {
-      var api = initForm(form);
-      if (form.getAttribute('data-form') === 'booking') booking = { form: form, api: api };
+      initForm(form);
+      if (form.getAttribute('data-form') === 'booking') booking = { form: form };
     });
 
-    // "Book this" links pre-select the matching switch on the booking form.
+    // "Book this" links pre-tick the matching service on the booking form.
     $$('[data-book]').forEach(function (link) {
       link.addEventListener('click', function () {
         if (!booking || booking.form.hidden) return;
@@ -473,7 +409,6 @@
         $$('input[name="services"]', booking.form).forEach(function (input) {
           if (input.value === wanted) input.checked = true;
         });
-        booking.api.showStep(0, false);
         validateQuietly(booking.form);
       });
     });

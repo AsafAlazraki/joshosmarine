@@ -21,7 +21,8 @@ Read it through and change anything that doesn't match how the business actually
 
 ## Booking forms
 
-There are two forms: the three-step **Book a job** form and the short **Request a call back** form.
+There are two forms: the **Booking request** form (every "Book a job" button jumps straight to it)
+and the short **Request a call back** form.
 
 - **With `formEndpoint` set**, requests are posted to that address as JSON and the customer
   sees a confirmation on the page. [Formspree](https://formspree.io) and
