@@ -160,7 +160,7 @@
       bar.classList.toggle('is-visible', pastHero && !blocked);
     };
     window.addEventListener('scroll', function () {
-      var next = window.scrollY > window.innerHeight * 0.6;
+      var next = window.scrollY > window.innerHeight * 0.35;
       if (next !== pastHero) { pastHero = next; update(); }
     }, { passive: true });
     if ('IntersectionObserver' in window) {

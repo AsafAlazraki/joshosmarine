@@ -115,6 +115,7 @@ ul, ol { list-style: none; }
 fieldset { border: 0; min-width: 0; }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; }
+a, button, label { -webkit-tap-highlight-color: transparent; }
 button, input, select, textarea { font: inherit; color: inherit; }
 button { cursor: pointer; }
 [hidden] { display: none !important; }
@@ -248,7 +249,8 @@ button { cursor: pointer; }
 .btn--primary:hover { --btn-bg: var(--signal-400); transform: translateY(-2px); }
 
 .btn--ghost { --btn-bg: transparent; --btn-fg: #fff; border-color: rgba(200, 243, 237, .32); }
-.btn--ghost:hover { border-color: var(--foam-300); --btn-fg: var(--foam-200); background: rgba(151, 230, 220, .06); }
+.btn--ghost:active { border-color: var(--foam-300); background: rgba(151, 230, 220, .1); }
+@media (hover: hover) { .btn--ghost:hover { border-color: var(--foam-300); --btn-fg: var(--foam-200); background: rgba(151, 230, 220, .06); } }
 
 .btn--dark { --btn-bg: var(--ink-900); --btn-fg: #fff; }
 .btn--dark:hover { --btn-bg: var(--ink-700); transform: translateY(-2px); }
@@ -383,6 +385,15 @@ button { cursor: pointer; }
 .header-phone .icon { color: var(--signal-500); width: 1.1em; height: 1.1em; }
 .header-phone:hover { color: #fff; }
 .header-book { display: none; }
+.header-call {
+  display: grid; place-items: center;
+  width: 46px; height: 46px;
+  border: 1px solid rgba(255, 106, 42, .55); border-radius: 12px;
+  color: var(--signal-500);
+  transition: background-color .2s, color .2s;
+}
+.header-call:active { background: var(--signal-500); color: var(--ink-900); }
+@media (hover: hover) { .header-call:hover { background: var(--signal-500); color: var(--ink-900); } }
 
 .nav-toggle {
   display: grid; place-items: center;
@@ -404,7 +415,10 @@ button { cursor: pointer; }
   .nav { display: block; }
   .nav-toggle { display: none; }
 }
-@media (min-width: 1180px) { .header-phone { display: inline-flex; margin-right: .5rem; } }
+@media (min-width: 1180px) {
+  .header-phone { display: inline-flex; margin-right: .5rem; }
+  .header-call { display: none; }
+}
 
 .mobile-menu {
   position: fixed; inset: 0; z-index: 90;
@@ -505,6 +519,13 @@ button { cursor: pointer; }
 
 @media (max-width: 479px) {
   .hero__cta .btn { flex: 1 1 100%; }
+}
+/* phones get a Call button in place of "See what we do" */
+.hero__call { display: none; }
+.hero__call .icon { color: var(--signal-500); }
+@media (max-width: 759px) {
+  .hero__call { display: inline-flex; }
+  .hero__see { display: none; }
 }
 @media (max-width: 379px) {
   .eyebrow { font-size: .625rem; letter-spacing: .08em; gap: .6em; }
