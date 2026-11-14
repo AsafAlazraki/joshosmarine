@@ -43,13 +43,22 @@ then visit <http://localhost:4173>.
 
 ## Hosting
 
-Any static host works (GitHub Pages, Cloudflare Pages, Netlify). Point it at the repository
-root with no build command.
+The site is served by GitHub Pages from the `gh-pages` branch at
+<https://joshosmarine.com.au>. Pushing to `gh-pages` redeploys it within a minute or two.
 
-For GitHub Pages: **Settings → Pages → Build and deployment → Deploy from a branch**, choose
-`main` and `/ (root)`, then save. The site appears at `https://<owner>.github.io/joshosmarine/`
-within a minute or two and redeploys on every push. A custom domain can be added on the same
-settings page later; all links in the site are relative, so nothing needs changing when it moves.
+The `CNAME` file in the repository root is what ties the site to the domain; leave it in place.
+At the domain registrar (GoDaddy) the DNS records are:
+
+| Type | Name | Value |
+| --- | --- | --- |
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| CNAME | `www` | `asafalazraki.github.io` |
+
+Any other static host works too (Cloudflare Pages, Netlify): point it at the repository root
+with no build command.
 
 ## What's where
 
@@ -61,6 +70,8 @@ js/config.js          Contact details and form settings  <- edit this one
 js/main.js            Menu, animations, booking form logic
 assets/fonts/         Self-hosted fonts (open licences in assets/fonts/licenses)
 assets/img/           Favicon, app icons, share image, chart-line background
+CNAME                 The custom domain for GitHub Pages
+sitemap.xml           Page list for search engines
 ```
 
 The boat-and-trailer drawing and the wiring diagram are hand-written SVG inside `index.html`,
