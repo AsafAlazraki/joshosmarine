@@ -7,6 +7,17 @@
   <meta name="description" content="Joshos Marine looks after the whole rig: clean 12V installs, marine servicing, trailer repairs and custom fit-outs. Book a job online in a couple of minutes.">
   <meta name="theme-color" content="#06182a">
   <meta name="format-detection" content="telephone=no">
+  <script>
+    // Visitors who arrive on the insecure http:// address are moved to https://,
+    // but only once the secure address has answered, so nobody is ever sent to a
+    // browser warning. (Turning on "Enforce HTTPS" in GitHub Pages does the same
+    // job on the server; with that on, this never runs.)
+    if (location.protocol === 'http:' && /(^|\.)joshosmarine\.com\.au$/.test(location.hostname) && window.fetch) {
+      fetch('https://' + location.host + '/robots.txt', { mode: 'no-cors', cache: 'no-store' })
+        .then(function () { location.replace('https://' + location.host + location.pathname + location.search + location.hash); })
+        .catch(function () {});
+    }
+  </script>
   <link rel="canonical" href="https://joshosmarine.com.au/">
 
   <meta property="og:type" content="website">
