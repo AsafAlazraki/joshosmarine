@@ -422,7 +422,7 @@ button { cursor: pointer; }
 
 .mobile-menu {
   position: fixed; inset: 0; z-index: 90;
-  display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;
+  display: flex; flex-direction: column; gap: 2rem;
   padding: calc(var(--header-h) + 1.5rem) var(--gutter) calc(1.5rem + env(safe-area-inset-bottom));
   background:
     radial-gradient(120% 70% at 100% 0%, rgba(29, 76, 114, .55), transparent 60%),
@@ -431,6 +431,10 @@ button { cursor: pointer; }
   overflow-y: auto;
   animation: menu-in .35s var(--ease-out);
 }
+/* the links sit in the middle of the space between the header and the buttons;
+   on a short screen the auto margins shrink to nothing and the menu simply scrolls */
+.mobile-menu__nav { margin-block: auto; }
+.mobile-menu__nav ul { border-top: 1px solid rgba(200, 243, 237, .12); }
 .mobile-menu__nav a {
   display: flex; align-items: baseline; gap: 1rem;
   padding: .35rem 0;
