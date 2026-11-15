@@ -23,8 +23,9 @@ Read it through and change anything that doesn't match how the business actually
 
 ## Booking forms
 
-There are two forms: the **Booking request** form (every "Book a job" button jumps straight to it)
-and the short **Request a call back** form.
+There are two forms: the **Booking request** form, which runs in three short steps (the job,
+the details, your contact details) and is where every "Book a job" button lands, and the short
+**Request a call back** form.
 
 Both post to [FormSubmit](https://formsubmit.co), a free form-to-email service that needs no
 account, which emails each request to the address at the end of `formEndpoint`. The first

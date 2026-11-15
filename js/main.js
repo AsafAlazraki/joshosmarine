@@ -180,7 +180,7 @@
   var LABELS = {
     services: 'Services',
     details: 'Details',
-    boat: 'Boat',
+    boat: 'Boat & motor',
     length: 'Length',
     motor: 'Motor',
     location: 'Where',
@@ -307,14 +307,51 @@
     var status = $('[data-status]', form);
     var submitBtn = $('[data-submit]', form);
     var submitLabel = $('[data-submit-label]', form);
+    var steps = $$('[data-step]', form);
+    var bar = $$('.wizard__bar li', form);
+    var names = $$('.wizard__names li', form);
+    var stepLabel = $('[data-step-label]', form);
+    var current = 0;
     var lastText = '';
     var idleLabel = submitLabel ? submitLabel.textContent : '';
+
+    /* Keeps the top of the form just under the page header when the step changes. */
+    function settle() {
+      var top = wrap.getBoundingClientRect().top;
+      if (top < 60 || top > 140) window.scrollTo({ top: window.scrollY + top - 88, behavior: reduceMotion ? 'auto' : 'smooth' });
+    }
+
+    function showStep(index, focus) {
+      if (!steps.length) return;
+      current = Math.max(0, Math.min(index, steps.length - 1));
+      steps.forEach(function (step, i) { step.classList.toggle('is-active', i === current); });
+      bar.forEach(function (li, i) { li.classList.toggle('is-on', i <= current); });
+      names.forEach(function (li, i) { li.classList.toggle('is-current', i === current); });
+      if (stepLabel) stepLabel.textContent = 'Step ' + (current + 1) + ' of ' + steps.length;
+      if (focus) {
+        var title = $('.step__title', steps[current]);
+        if (title) title.focus({ preventScroll: true });
+        settle();
+      }
+    }
 
     function setStatus(html) {
       if (!status) return;
       status.hidden = !html;
       status.className = 'form__status' + (html ? ' is-error' : '');
       status.innerHTML = html || '';
+    }
+
+    function goNext() {
+      var bad = validate(steps[current]);
+      if (bad) { bad.focus(); return; }
+      showStep(current + 1, true);
+    }
+
+    if (steps.length) {
+      showStep(0, false);
+      $$('[data-next]', form).forEach(function (btn) { btn.addEventListener('click', goNext); });
+      $$('[data-prev]', form).forEach(function (btn) { btn.addEventListener('click', function () { showStep(current - 1, true); }); });
     }
 
     // Clear an error as soon as the visitor starts fixing it.
@@ -329,7 +366,18 @@
       e.preventDefault();
       setStatus('');
 
-      var bad = validate(form);
+      // Pressing Enter on an earlier step moves forward instead of sending.
+      if (steps.length && current < steps.length - 1) { goNext(); return; }
+
+      var bad = null;
+      if (steps.length) {
+        for (var i = 0; i < steps.length && !bad; i++) {
+          bad = validate(steps[i]);
+          if (bad && i !== current) showStep(i, false);
+        }
+      } else {
+        bad = validate(form);
+      }
       if (bad) { bad.focus(); return; }
 
       var data = collect(form);
@@ -392,11 +440,11 @@
         $$('.field__error', form).forEach(function (el) { if (el.hasAttribute('data-group-error')) el.hidden = true; else el.remove(); });
         done.hidden = true;
         form.hidden = false;
-        var top = wrap.getBoundingClientRect().top;
-        if (top < 80) window.scrollTo({ top: window.scrollY + top - 96, behavior: reduceMotion ? 'auto' : 'smooth' });
+        if (steps.length) showStep(0, true); else settle();
       });
     }
 
+    return { showStep: showStep };
   }
 
   function forms() {
@@ -406,8 +454,8 @@
 
     var booking = null;
     $$('form[data-form]').forEach(function (form) {
-      initForm(form);
-      if (form.getAttribute('data-form') === 'booking') booking = { form: form };
+      var api = initForm(form);
+      if (form.getAttribute('data-form') === 'booking') booking = { form: form, api: api };
     });
 
     // "Book this" links pre-tick the matching service on the booking form.
@@ -418,6 +466,7 @@
         $$('input[name="services"]', booking.form).forEach(function (input) {
           if (input.value === wanted) input.checked = true;
         });
+        booking.api.showStep(0, false);
         validateQuietly(booking.form);
       });
     });
