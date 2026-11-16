@@ -307,7 +307,10 @@ button { cursor: pointer; }
 }
 .waves svg {
   position: absolute; left: 0; bottom: 0;
-  width: 200%; min-width: 1800px; height: 100%;
+  /* Twice the width of the band and slid left by half, so it loops seamlessly.
+     max-width must be lifted: the site-wide "svg { max-width: 100% }" rule
+     otherwise shrinks this to one band-width and the wave runs out part-way. */
+  width: 200%; min-width: 1800px; max-width: none; height: 100%;
   animation: swell 22s linear infinite;
 }
 .waves svg:nth-child(2) { animation-duration: 15s; animation-direction: reverse; }
@@ -952,9 +955,12 @@ button { cursor: pointer; }
 .booking__bg::before {
   content: ""; position: absolute; inset: 0;
   background:
+    /* fades to the exact colour of the front wave, so there is no line where they meet */
+    linear-gradient(180deg, var(--ink-900), rgba(6, 24, 42, 0) 140px),
     radial-gradient(60% 55% at 12% 20%, rgba(29, 76, 114, .6), transparent 70%),
     linear-gradient(180deg, var(--ink-900), var(--ink-950));
 }
+.booking__bg .contours { -webkit-mask-image: url("../assets/img/contours.svg"), linear-gradient(180deg, transparent, #000 120px); mask-image: url("../assets/img/contours.svg"), linear-gradient(180deg, transparent, #000 120px); -webkit-mask-composite: source-in; mask-composite: intersect; -webkit-mask-size: cover, 100% 100%; mask-size: cover, 100% 100%; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
 .booking__grid { display: grid; gap: clamp(1.75rem, 4vw, 3rem) clamp(2.5rem, 5vw, 4.5rem); align-items: start; }
 .booking__head .section-head__lede { margin-top: 1.1rem; }
 @media (min-width: 1000px) {
