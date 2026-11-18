@@ -1,0 +1,325 @@
+    <!-- ==================================================================
+         Boat trailer repairs: page header with a labelled trailer
+         ================================================================== -->
+    <section class="hero page-hero" id="top">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="contours"></div>
+        <div class="hero__glow"></div>
+        <div class="grain"></div>
+      </div>
+
+      <div class="container page-hero__grid">
+        <div class="page-hero__copy">
+          {{crumbs}}
+
+          <h1 class="display display--light page-hero__title" data-reveal style="--d:.06s">Boat trailer repairs <em>in North Brisbane.</em></h1>
+
+          <p class="hero__lede" data-reveal style="--d:.14s">
+            Bearings, brakes, lights and rollers for boat trailers across North Brisbane.
+            It is the part of the rig that gets dunked in salt water every trip.
+          </p>
+
+          <div class="hero__cta" data-reveal style="--d:.22s">
+            <a class="btn btn--primary btn--lg" href="{{book}}">{{book_label}} {{arrow}}</a>
+            <a class="btn btn--ghost btn--lg page-hero__call" href="tel:{{tel}}" data-tel>
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              <span>Call <span data-phone>{{phone}}</span></span>
+            </a>
+          </div>
+
+          <ul class="hero__points" data-reveal style="--d:.3s">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Quote before work starts</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Marine-grade parts</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Sorted before your next tow</li>
+          </ul>
+        </div>
+
+        <div class="page-hero__art" data-reveal style="--d:.2s">
+          <div class="plate">
+            <div class="plate__view">
+              <svg viewBox="14 44 620 244" role="img" aria-labelledby="tr-title">
+                <title id="tr-title">Side view of an empty boat trailer with eight numbered parts, from the tail light to the coupling</title>
+
+                <path class="rg rg--faint rg--dash" d="M20 262H620"/>
+
+                <!-- frame, drawbar, coupling and safety chain -->
+                <rect class="rg rg--body" x="62" y="178" width="440" height="13" rx="3"/>
+                <path class="rg rg--body" d="M502 178l88 4v6l-88 3z"/>
+                <rect class="rg rg--body" x="588" y="174" width="30" height="13" rx="6.5"/>
+                <path class="rg rg--thin" d="M604 187v8M594 188q8 20 20 4"/>
+
+                <!-- skid, stanchions and keel rollers -->
+                <path class="rg rg--thin" d="M130 178v-28M400 178v-28M112 178v-4M330 178v-4M410 178v-4"/>
+                <path class="rg rg--tube" d="M96 148H432"/>
+                <circle class="rg rg--body" cx="112" cy="166" r="8"/>
+                <circle class="rg rg--body" cx="330" cy="166" r="8"/>
+                <circle class="rg rg--body" cx="446" cy="166" r="8"/>
+                <path class="rg rg--thin" d="M446 178v-4"/>
+
+                <!-- winch post, bow roller, winch and strap -->
+                <path class="rg rg--body" d="M476 178l-9-104h11l11 104z"/>
+                <circle class="rg rg--body" cx="466" cy="76" r="8"/>
+                <circle class="rg rg--body" cx="482" cy="116" r="10"/>
+                <path class="rg rg--thin" d="M488 108l12-10M474 112l-26-9"/>
+                <circle class="rg rg--thin" cx="502" cy="96" r="3"/>
+                <circle class="rg rg--thin" cx="445" cy="102" r="3"/>
+
+                <!-- jockey wheel -->
+                <path class="rg" d="M532 160v74M532 160h14"/>
+                <rect class="rg rg--body" x="525" y="172" width="14" height="26" rx="2"/>
+                <circle class="rg rg--body" cx="532" cy="248" r="14"/>
+                <circle class="rg rg--thin" cx="532" cy="248" r="3.5"/>
+
+                <!-- tail light, number plate and the wiring that runs the length of the frame -->
+                <rect class="rg rg--lamp" x="52" y="172" width="10" height="24" rx="2"/>
+                <rect class="rg rg--thin" x="68" y="197" width="30" height="14" rx="2"/>
+                <path class="rg rg--hot rg--flow" d="M62 184.5H588"/>
+
+                <!-- spring, mudguard, tyre, rim, hub and brake caliper -->
+                <path class="rg rg--thin" d="M182 198q58 30 116 0"/>
+                <circle class="rg rg--thin" cx="182" cy="198" r="3"/>
+                <circle class="rg rg--thin" cx="298" cy="198" r="3"/>
+                <path class="rg rg--solid" d="M176 204q-2-46 64-46t64 46"/>
+                <circle class="rg rg--solid" cx="240" cy="216" r="46"/>
+                <circle class="rg rg--thin" cx="240" cy="216" r="31"/>
+                <circle class="rg rg--faint" cx="240" cy="216" r="38.5"/>
+                <rect class="rg rg--hot rg--thin" x="262" y="186" width="17" height="12" rx="2" transform="rotate(38 270 192)"/>
+
+                <!-- numbered parts -->
+                <path class="mk-lead" d="M310 224L278 197"/><circle class="mk-end" cx="278" cy="197" r="3.5"/>
+                <path class="mk-lead" d="M57 149V170"/><circle class="mk-end" cx="57" cy="171" r="3.5"/>
+                <path class="mk-lead" d="M400 216V187"/><circle class="mk-end" cx="400" cy="185" r="3.5"/>
+                <path class="mk-lead" d="M330 127V156"/><circle class="mk-end" cx="330" cy="158" r="3.5"/>
+                <path class="mk-lead" d="M430 100L470 113"/><circle class="mk-end" cx="471" cy="113" r="3.5"/>
+                <path class="mk-lead" d="M600 153V172"/><circle class="mk-end" cx="601" cy="174" r="3.5"/>
+                <path class="mk-lead" d="M166 224L184 200"/><circle class="mk-end" cx="184" cy="200" r="3.5"/>
+                <circle class="mk-dot mk-dot--lg" cx="240" cy="216" r="20"/><text class="mk-num mk-num--lg" x="240" y="216">1</text>
+                <circle class="mk-dot mk-dot--lg" cx="322" cy="234" r="20"/><text class="mk-num mk-num--lg" x="322" y="234">2</text>
+                <circle class="mk-dot mk-dot--lg" cx="57" cy="132" r="20"/><text class="mk-num mk-num--lg" x="57" y="132">3</text>
+                <circle class="mk-dot mk-dot--lg" cx="400" cy="232" r="20"/><text class="mk-num mk-num--lg" x="400" y="232">4</text>
+                <circle class="mk-dot mk-dot--lg" cx="330" cy="110" r="20"/><text class="mk-num mk-num--lg" x="330" y="110">5</text>
+                <circle class="mk-dot mk-dot--lg" cx="414" cy="95" r="20"/><text class="mk-num mk-num--lg" x="414" y="95">6</text>
+                <circle class="mk-dot mk-dot--lg" cx="600" cy="136" r="20"/><text class="mk-num mk-num--lg" x="600" y="136">7</text>
+                <circle class="mk-dot mk-dot--lg" cx="156" cy="238" r="20"/><text class="mk-num mk-num--lg" x="156" y="238">8</text>
+              </svg>
+            </div>
+            <p class="plate__cap"><b>Dwg 03</b><span>Tail light to coupling</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         What we fix, numbered to match the drawing
+         ================================================================== -->
+    <section class="section section--paper" id="included">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__num">01</span>What's covered</p>
+            <h2 class="display" data-reveal>What we <em>fix.</em></h2>
+          </div>
+          <p class="section-head__lede" data-reveal>
+            It gets dunked in salt water every trip, then forgotten about. We don't forget about it.
+            The numbers match the drawing above.
+          </p>
+        </header>
+
+        <ol class="legend" data-reveal>
+          <li>
+            <span class="legend__n" aria-hidden="true">1</span>
+            <div><h3>Wheel bearings &amp; seals</h3><p>Bearings cleaned, inspected and repacked or replaced, with new seals to keep the salt water out.</p></div>
+          </li>
+          <li>
+            <span class="legend__n" aria-hidden="true">2</span>
+            <div><h3>Brakes, calipers &amp; cables</h3><p>Seized calipers, worn pads, corroded discs and stretched cables put right, so the trailer pulls up straight.</p></div>
+          </li>
+          <li>
+            <span class="legend__n" aria-hidden="true">3</span>
+            <div><h3>LED light conversions</h3><p>Sealed, submersible LED lights in place of bulbs that fail every second trip.</p></div>
+          </li>
+          <li>
+            <span class="legend__n" aria-hidden="true">4</span>
+            <div><h3>Trailer rewires</h3><p>New cable run properly along the frame, with sealed joins and a plug that makes good contact.</p></div>
+          </li>
+          <li>
+            <span class="legend__n" aria-hidden="true">5</span>
+            <div><h3>Rollers, skids &amp; bunks</h3><p>Flat-spotted rollers and worn skids replaced and set up to suit the hull, so the boat loads straight and sits right.</p></div>
+          </li>
+          <li>
+            <span class="legend__n" aria-hidden="true">6</span>
+            <div><h3>Winches, straps &amp; chains</h3><p>Winch, strap and safety chain checked and replaced before they let go on the ramp.</p></div>
+          </li>
+          <li>
+            <span class="legend__n" aria-hidden="true">7</span>
+            <div><h3>Couplings &amp; jockey wheels</h3><p>Worn couplings and seized jockey wheels replaced, so hitching up is quick and stays secure.</p></div>
+          </li>
+          <li>
+            <span class="legend__n" aria-hidden="true">8</span>
+            <div><h3>Springs, axles &amp; hubs</h3><p>Rusted springs, bent axles and worn hubs replaced before they leave you on the side of the road.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Inside a wheel hub
+         ================================================================== -->
+    <section class="section section--ink" id="bearings">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--light" data-reveal><span class="eyebrow__num">02</span>Inside the hub</p>
+          <h2 class="display display--light" data-reveal>Where the salt <em>gets in.</em></h2>
+          <p class="section-head__lede section-head__lede--light" data-reveal>
+            Wheel bearings are the most common reason a boat trailer ends up on the side of the road.
+            This is what is inside each hub, and the one part that keeps the water out.
+          </p>
+        </header>
+
+        <div class="exploded" data-reveal>
+          <div class="exploded__scroll" tabindex="0" role="group" aria-label="Exploded view of a trailer wheel hub. Scroll sideways to see all of it.">
+            <svg viewBox="0 0 760 250" role="img" aria-labelledby="hub-title">
+              <title id="hub-title">The parts of a trailer wheel hub laid out in order: axle, seal, inner bearing, hub, outer bearing, washer and nut, dust cap</title>
+              <path class="rg rg--faint rg--dash" d="M8 105H752"/>
+
+              <rect class="rg rg--body" x="20" y="87" width="74" height="36" rx="4"/>
+              <rect class="rg rg--body" x="94" y="93" width="26" height="24" rx="2"/>
+              <path class="rg rg--faint" d="M101 93v24M108 93v24M115 93v24"/>
+
+              <ellipse class="rg rg--hot" cx="165" cy="105" rx="10" ry="46"/>
+              <ellipse class="rg rg--hot rg--thin" cx="165" cy="105" rx="5" ry="30"/>
+
+              <path class="rg rg--body" d="M225 59l40 10v72l-40 10z"/>
+              <path class="rg rg--faint" d="M235 63v84M245 66v78M255 68v74"/>
+
+              <rect class="rg rg--body" x="322" y="59" width="100" height="92" rx="8"/>
+              <rect class="rg rg--solid" x="352" y="25" width="18" height="160" rx="4"/>
+              <path class="rg rg--tube" d="M370 43h26M370 167h26"/>
+
+              <path class="rg rg--body" d="M482 77l32-8v72l-32-8z"/>
+              <path class="rg rg--faint" d="M490 76v58M498 74v62M506 72v66"/>
+
+              <rect class="rg rg--body" x="566" y="79" width="8" height="52" rx="2"/>
+              <rect class="rg rg--body" x="586" y="85" width="26" height="40" rx="3"/>
+              <path class="rg rg--faint" d="M594 85v40M604 85v40"/>
+              <path class="rg rg--thin" d="M599 79v-13q0-7 7-7"/>
+
+              <path class="rg rg--body" d="M660 71h24q36 0 36 34t-36 34h-24z"/>
+
+              <!-- where water gets past -->
+              <path class="rg rg--hot rg--thin" d="M96 40q42 0 60 20M145 57l12 4-2-12"/>
+              <text class="dwg-label dwg-label--hot" x="20" y="26">WATER GETS PAST HERE</text>
+
+              <path class="rg rg--faint" d="M57 127v70M165 155v64M245 155v42M361 189v30M498 145v52M590 135v84M690 143v54"/>
+              <text class="dwg-label dwg-label--mid" x="57" y="212">AXLE</text>
+              <text class="dwg-label dwg-label--mid dwg-label--hot" x="165" y="236">SEAL</text>
+              <text class="dwg-label dwg-label--mid" x="245" y="212">INNER BEARING</text>
+              <text class="dwg-label dwg-label--mid" x="361" y="236">HUB</text>
+              <text class="dwg-label dwg-label--mid" x="498" y="212">OUTER BEARING</text>
+              <text class="dwg-label dwg-label--mid" x="590" y="236">WASHER &amp; NUT</text>
+              <text class="dwg-label dwg-label--mid" x="690" y="212">DUST CAP</text>
+            </svg>
+          </div>
+          <p class="exploded__hint" aria-hidden="true">Swipe sideways to see the whole hub →</p>
+        </div>
+
+        <div class="split hub-notes">
+          <ul class="facts">
+            <li data-reveal>
+              <b aria-hidden="true">/01</b>
+              <h3>Hot hub, cold water</h3>
+              <p>A hub is warm after a tow. Back it into the water and it cools quickly, which draws water in past the seal.</p>
+            </li>
+            <li data-reveal style="--d:.07s">
+              <b aria-hidden="true">/02</b>
+              <h3>Water turns grease to paste</h3>
+              <p>Once salt water is inside, the grease breaks down and the bearing starts to pit and rust.</p>
+            </li>
+            <li data-reveal style="--d:.14s">
+              <b aria-hidden="true">/03</b>
+              <h3>A seal is cheap. A hub is not</h3>
+              <p>New seals at each service keep the water out. Left alone, a failed bearing can take the hub and the axle with it.</p>
+            </li>
+          </ul>
+
+          <div data-reveal style="--d:.1s">
+            <h3 class="hub-notes__title">Early warnings</h3>
+            <ul class="signs signs--light">
+              <li><b aria-hidden="true">01</b><span>A hub that is hot to touch after a tow</span></li>
+              <li><b aria-hidden="true">02</b><span>Grease flung on the inside of the wheel or guard</span></li>
+              <li><b aria-hidden="true">03</b><span>Rumbling or grinding from a wheel</span></li>
+              <li><b aria-hidden="true">04</b><span>Brakes that drag, grab or do nothing</span></li>
+              <li><b aria-hidden="true">05</b><span>Lights that fail after every launch</span></li>
+              <li><b aria-hidden="true">06</b><span>The boat sits crooked, or is hard to winch on</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         The pre-tow check
+         ================================================================== -->
+    <section class="section section--sand" id="pre-tow">
+      <div class="container split">
+        <div class="split__copy">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">03</span>Before every trip</p>
+          <h2 class="display" data-reveal>The <span class="nb">two-minute</span> <em><span class="nb">pre-tow</span> check.</em></h2>
+          <p class="section-head__lede" data-reveal>
+            Run through this in the driveway before you leave. Tick each one off as you go.
+            Anything that doesn't pass is the job to book in.
+          </p>
+          <a class="btn btn--dark" href="{{book}}" data-reveal>{{book_label}} {{arrow}}</a>
+        </div>
+
+        <div class="pretow" data-pretow data-reveal style="--d:.1s">
+          <ul>
+            <li><label class="pretow__item"><input type="checkbox"><span class="pretow__box" aria-hidden="true"></span><span class="pretow__text"><b>Coupling</b><span>Down on the ball, latched, and the safety chain on.</span></span></label></li>
+            <li><label class="pretow__item"><input type="checkbox"><span class="pretow__box" aria-hidden="true"></span><span class="pretow__text"><b>Lights</b><span>Plugged in and working: indicators, brakes and tail.</span></span></label></li>
+            <li><label class="pretow__item"><input type="checkbox"><span class="pretow__box" aria-hidden="true"></span><span class="pretow__text"><b>Tyres</b><span>Pumped up, with no cracks or bulges. The spare too.</span></span></label></li>
+            <li><label class="pretow__item"><input type="checkbox"><span class="pretow__box" aria-hidden="true"></span><span class="pretow__text"><b>Wheel nuts</b><span>All there, and tight.</span></span></label></li>
+            <li><label class="pretow__item"><input type="checkbox"><span class="pretow__box" aria-hidden="true"></span><span class="pretow__text"><b>Hubs</b><span>No grease flung on the wheel, and no play when you rock it.</span></span></label></li>
+            <li><label class="pretow__item"><input type="checkbox"><span class="pretow__box" aria-hidden="true"></span><span class="pretow__text"><b>Winch</b><span>Strap tight, and the safety chain on the bow.</span></span></label></li>
+            <li><label class="pretow__item"><input type="checkbox"><span class="pretow__box" aria-hidden="true"></span><span class="pretow__text"><b>Tie-downs</b><span>Strapped down at the stern, with the motor supported.</span></span></label></li>
+          </ul>
+          <p class="pretow__status">
+            <span data-pretow-status aria-live="polite">Seven things to check</span>
+            <button class="pretow__reset" type="button" data-pretow-reset hidden>Start again</button>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Questions
+         ================================================================== -->
+    <section class="section section--paper" id="faq">
+      <div class="container faq__grid">
+        <header class="section-head faq__head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">04</span>Good to know</p>
+          <h2 class="display" data-reveal>Trailer <em>questions.</em></h2>
+          <p class="section-head__lede" data-reveal>
+            Can't see yours here? Ask it in the <a href="{{book}}">booking form</a> or
+            <a href="#contact">give us a call</a>.
+          </p>
+        </header>
+
+        {{faq}}
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         The other services
+         ================================================================== -->
+    <section class="section section--sand" id="more">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">05</span>More from Joshos Marine</p>
+          <h2 class="display" data-reveal>The rest of <em>the rig.</em></h2>
+        </header>
+
+        {{others}}
+      </div>
+    </section>
+
+    {{contact}}

@@ -1,0 +1,284 @@
+    <!-- ==================================================================
+         Boat servicing: page header with a labelled outboard
+         ================================================================== -->
+    <section class="hero page-hero" id="top">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="contours"></div>
+        <div class="hero__glow"></div>
+        <div class="grain"></div>
+      </div>
+
+      <div class="container page-hero__grid">
+        <div class="page-hero__copy">
+          {{crumbs}}
+
+          <h1 class="display display--light page-hero__title" data-reveal style="--d:.06s">Boat &amp; outboard servicing <em>in North Brisbane.</em></h1>
+
+          <p class="hero__lede" data-reveal style="--d:.14s">
+            Routine outboard servicing and the maintenance jobs that keep a trailer boat reliable,
+            for boats across North Brisbane.
+          </p>
+
+          <div class="hero__cta" data-reveal style="--d:.22s">
+            <a class="btn btn--primary btn--lg" href="{{book}}">{{book_label}} {{arrow}}</a>
+            <a class="btn btn--ghost btn--lg page-hero__call" href="tel:{{tel}}" data-tel>
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              <span>Call <span data-phone>{{phone}}</span></span>
+            </a>
+          </div>
+
+          <ul class="hero__points" data-reveal style="--d:.3s">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Quote before work starts</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Marine-grade parts</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>You hear what was found</li>
+          </ul>
+        </div>
+
+        <div class="page-hero__art" data-reveal style="--d:.2s">
+          <div class="plate">
+            <div class="plate__view">
+              <svg viewBox="0 0 520 500" role="img" aria-labelledby="ob-title">
+                <title id="ob-title">Side view of an outboard motor on the back of a boat, with five numbered service points</title>
+
+                <!-- the boat it hangs off -->
+                <path class="rg rg--body" d="M294 130 324 366H540V124Q420 128 294 130z"/>
+                <path class="rg rg--thin" d="M296 148Q420 145 540 142"/>
+                <path class="rg rg--faint rg--dash" d="M16 316H300"/>
+                <text class="dwg-label" x="18" y="306">WATERLINE</text>
+
+                <!-- rigging: control cables over the transom, fuel line and primer bulb -->
+                <path class="rg rg--thin" d="M288 92c50-36 130-34 232-34M288 102c54-30 132-28 232-28"/>
+                <path class="rg rg--thin" d="M290 126c40 6 40 58 70 76M388 218c22 12 50 14 132 14"/>
+                <ellipse class="rg rg--body" cx="374" cy="210" rx="17" ry="9" transform="rotate(32 374 210)"/>
+
+                <!-- the outboard: the same motor as the main drawing, twice the size -->
+                <g transform="translate(-90 -430) scale(2)" style="--rig-sw:.9">
+                  <rect class="rg rg--body" x="178" y="272" width="16" height="50" rx="3"/>
+                  <circle class="rg rg--thin" cx="186" cy="292" r="3"/>
+                  <path class="rg rg--body" d="M124 292q-14 0-12-20l6-26q4-18 24-18h30q18 0 18 18v46z"/>
+                  <path class="rg rg--thin" d="M113 276h77"/>
+                  <path class="rg rg--hot rg--thin" d="M130 248h40M130 257h26"/>
+                  <path class="rg rg--faint" d="M120 242l11-7"/>
+                  <path class="rg rg--body" d="M134 292h46l-8 98h-28z"/>
+                  <path class="rg rg--faint" d="M150 300l3 82M166 300l-2 82"/>
+                  <path class="rg rg--tube" d="M118 392h68"/>
+                  <path class="rg rg--body" d="M124 414q0-12 18-12h28q16 2 20 12-4 10-20 12h-28q-18 0-18-12z"/>
+                  <rect class="rg rg--body" x="112" y="408" width="12" height="12" rx="2"/>
+                  <ellipse class="rg rg--body" cx="107" cy="414" rx="5" ry="22"/>
+                  <path class="rg rg--body" d="M150 426l-4 26 22-26z"/>
+                  <circle class="rg rg--thin" cx="176" cy="414" r="2"/>
+                </g>
+
+                <!-- details that only show at this size: telltale, anode, vent screw, water intake -->
+                <path class="rg rg--faint rg--dash" d="M150 152q-36 10-46 60"/>
+                <rect class="rg rg--thin" x="150" y="360" width="28" height="10" rx="2"/>
+                <circle class="rg rg--thin" cx="244" cy="386" r="3.5"/>
+                <path class="rg rg--thin" d="M270 386v10M277 386v10M284 388v7"/>
+
+                <!-- numbered service points -->
+                <path class="mk-lead" d="M110 258L204 318"/><circle class="mk-end" cx="204" cy="318" r="3.5"/>
+                <path class="mk-lead" d="M410 240L386 218"/><circle class="mk-end" cx="386" cy="218" r="3.5"/>
+                <path class="mk-lead" d="M84 348L152 364"/><circle class="mk-end" cx="152" cy="364" r="3.5"/>
+                <circle class="mk-dot" cx="212" cy="88" r="17"/><text class="mk-num" x="212" y="88">1</text>
+                <circle class="mk-dot" cx="96" cy="250" r="17"/><text class="mk-num" x="96" y="250">2</text>
+                <circle class="mk-dot" cx="422" cy="252" r="17"/><text class="mk-num" x="422" y="252">3</text>
+                <circle class="mk-dot" cx="68" cy="344" r="17"/><text class="mk-num" x="68" y="344">4</text>
+                <circle class="mk-dot" cx="442" cy="66" r="17"/><text class="mk-num" x="442" y="66">5</text>
+              </svg>
+            </div>
+            <p class="plate__cap"><b>Dwg 02</b><span>Where a service goes</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         The service sheet
+         ================================================================== -->
+    <section class="section section--sand" id="included">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__num">01</span>What's covered</p>
+            <h2 class="display" data-reveal>What a service <em>covers.</em></h2>
+          </div>
+          <p class="section-head__lede" data-reveal>
+            Routine servicing, plus the jobs that get put off until something goes bang at the ramp.
+            The numbers match the drawing above.
+          </p>
+        </header>
+
+        <div class="sheet" data-reveal>
+          <div class="sheet__head">
+            <p class="sheet__title">Service sheet</p>
+            <dl class="sheet__meta" aria-hidden="true">
+              <div><dt>Motor</dt><dd></dd></div>
+              <div><dt>Hours</dt><dd></dd></div>
+              <div><dt>Date</dt><dd></dd></div>
+            </dl>
+          </div>
+          <ol class="sheet__lines">
+            <li>
+              <span class="sheet__n" aria-hidden="true">1</span>
+              <div>
+                <h3>Outboard servicing</h3>
+                <p>Oils, filters, plugs and a proper look over the whole motor, matched to the engine and the hours it has done.</p>
+              </div>
+              <span class="sheet__box" aria-hidden="true"></span>
+            </li>
+            <li>
+              <span class="sheet__n" aria-hidden="true">2</span>
+              <div>
+                <h3>Gearbox oil &amp; impellers</h3>
+                <p>Fresh gearbox oil, checked for water, and a new water pump impeller before the old one lets go and the motor overheats.</p>
+              </div>
+              <span class="sheet__box" aria-hidden="true"></span>
+            </li>
+            <li>
+              <span class="sheet__n" aria-hidden="true">3</span>
+              <div>
+                <h3>Fuel filters, lines &amp; bulbs</h3>
+                <p>Filters changed and perished lines, bulbs and clamps replaced, because stale or dirty fuel is behind a lot of breakdowns.</p>
+              </div>
+              <span class="sheet__box" aria-hidden="true"></span>
+            </li>
+            <li>
+              <span class="sheet__n" aria-hidden="true">4</span>
+              <div>
+                <h3>Anodes, plugs &amp; thermostats</h3>
+                <p>The small sacrificial and wear parts that are cheap to replace on time and expensive to ignore.</p>
+              </div>
+              <span class="sheet__box" aria-hidden="true"></span>
+            </li>
+            <li>
+              <span class="sheet__n" aria-hidden="true">5</span>
+              <div>
+                <h3>Steering &amp; control cables</h3>
+                <p>Stiff steering and a sticky throttle or gear shift sorted before a cable seizes or snaps.</p>
+              </div>
+              <span class="sheet__box" aria-hidden="true"></span>
+            </li>
+          </ol>
+          <div class="sheet__foot">
+            <span>Anything else we find, you hear about first</span>
+            <span class="sheet__stamp" aria-hidden="true">Quoted first</span>
+          </div>
+        </div>
+
+        <ul class="trio">
+          <li class="trio__item" data-reveal>
+            <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
+            <h3>Pre-season check-overs</h3>
+            <p>A once-over of the motor, electrics and trailer before the boat goes back in after a long break.</p>
+          </li>
+          <li class="trio__item" data-reveal style="--d:.07s">
+            <svg class="icon" aria-hidden="true"><use href="#i-help"/></svg>
+            <h3>Pre-purchase inspections</h3>
+            <p>An honest look over a boat, motor and trailer you are thinking of buying, so you know what you are taking on.</p>
+          </li>
+          <li class="trio__item" data-reveal style="--d:.14s">
+            <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+            <h3>Lay-up &amp; storage prep</h3>
+            <p>Fuel treated, motor flushed and batteries looked after, so it starts when you come back to it.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         How often
+         ================================================================== -->
+    <section class="section section--ink" id="when">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--light" data-reveal><span class="eyebrow__num">02</span>Service rhythm</p>
+          <h2 class="display display--light" data-reveal>How often <em>it's due.</em></h2>
+          <p class="section-head__lede section-head__lede--light" data-reveal>
+            An outboard that lives in salt water needs looking after on a schedule, whether or not
+            it has done many hours.
+          </p>
+        </header>
+
+        <ol class="rhythm">
+          <li class="rhythm__stop" data-reveal>
+            <p class="rhythm__k">You</p>
+            <p class="rhythm__when">Every trip</p>
+            <p>Flush the motor with fresh water, check the telltale is running strong, and look for oil or fishing line around the prop.</p>
+          </li>
+          <li class="rhythm__stop rhythm__stop--main" data-reveal style="--d:.07s">
+            <p class="rhythm__k">The service</p>
+            <p class="rhythm__when">100 hours <small>or once a year, whichever comes first</small></p>
+            <p>Oils, filters, plugs, gearbox oil and anodes, plus a check of everything that moves.</p>
+          </li>
+          <li class="rhythm__stop" data-reveal style="--d:.14s">
+            <p class="rhythm__k">The bigger items</p>
+            <p class="rhythm__when">Every few seasons</p>
+            <p>Water pump impeller, thermostat and fuel lines, sooner if the boat works hard or sits for long stretches.</p>
+          </li>
+        </ol>
+
+        <p class="fineprint fineprint--light" data-reveal>
+          Intervals vary from motor to motor. Your owner's manual has the schedule for yours, and we work to that.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Signs it is due now
+         ================================================================== -->
+    <section class="section section--sand" id="signs">
+      <div class="container split">
+        <div class="split__copy">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">03</span>Don't wait for the date</p>
+          <h2 class="display" data-reveal>Signs it's <em>due now.</em></h2>
+          <p class="section-head__lede" data-reveal>
+            Most outboard trouble gives some warning first. Catching it at a service costs far less
+            than finding it out on the water.
+          </p>
+          <a class="btn btn--dark" href="{{book}}" data-reveal>{{book_label}} {{arrow}}</a>
+        </div>
+
+        <ul class="signs" data-reveal style="--d:.1s">
+          <li><b aria-hidden="true">01</b><span>Hard starting, rough idle or stalling</span></li>
+          <li><b aria-hidden="true">02</b><span>The overheat alarm, or a weak telltale stream</span></li>
+          <li><b aria-hidden="true">03</b><span>Milky gearbox oil, or oil around the prop</span></li>
+          <li><b aria-hidden="true">04</b><span>Steering or throttle getting stiff</span></li>
+          <li><b aria-hidden="true">05</b><span>A fuel smell, or a primer bulb that won't go firm</span></li>
+          <li><b aria-hidden="true">06</b><span>It has sat unused for most of a year</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Questions
+         ================================================================== -->
+    <section class="section section--paper" id="faq">
+      <div class="container faq__grid">
+        <header class="section-head faq__head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">04</span>Good to know</p>
+          <h2 class="display" data-reveal>Servicing <em>questions.</em></h2>
+          <p class="section-head__lede" data-reveal>
+            Can't see yours here? Ask it in the <a href="{{book}}">booking form</a> or
+            <a href="#contact">give us a call</a>.
+          </p>
+        </header>
+
+        {{faq}}
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         The other services
+         ================================================================== -->
+    <section class="section section--sand" id="more">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">05</span>More from Joshos Marine</p>
+          <h2 class="display" data-reveal>The rest of <em>the rig.</em></h2>
+        </header>
+
+        {{others}}
+      </div>
+    </section>
+
+    {{contact}}

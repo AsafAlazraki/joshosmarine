@@ -453,17 +453,20 @@
     });
 
     // "Book this" links pre-tick the matching service on the booking form.
-    $$('[data-book]').forEach(function (link) {
-      link.addEventListener('click', function () {
-        if (!booking || booking.form.hidden) return;
-        var wanted = link.getAttribute('data-book');
-        $$('input[name="services"]', booking.form).forEach(function (input) {
-          if (input.value === wanted) input.checked = true;
-        });
-        booking.api.showStep(0, false);
-        validateQuietly(booking.form);
+    var preTick = function (wanted) {
+      if (!booking || booking.form.hidden || !wanted) return;
+      $$('input[name="services"]', booking.form).forEach(function (input) {
+        if (input.value === wanted) input.checked = true;
       });
+      booking.api.showStep(0, false);
+      validateQuietly(booking.form);
+    };
+    $$('[data-book]').forEach(function (link) {
+      link.addEventListener('click', function () { preTick(link.getAttribute('data-book')); });
     });
+    // The service pages link here as "?book=Trailer work#booking".
+    var asked = new URLSearchParams(location.search).get('book');
+    if (asked) preTick(asked);
   }
 
   /* Clears a stale "pick a service" error after a pre-selection. */

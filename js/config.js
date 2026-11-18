@@ -17,8 +17,10 @@ window.JOSHOS = {
   // Where booking requests are sent.
   email: "joshosmarine@gmail.com",
 
-  // Where you work, e.g. "Gold Coast & Northern Rivers". Leave "" to hide it.
-  area: "",
+  // Where you work. Leave "" to hide it. The area is also written into the
+  // page titles and text for search engines, so tell whoever looks after the
+  // site if it changes.
+  area: "North Brisbane",
 
   // Opening hours, one [label, value] pair per row. Leave [] to hide them.
   hours: [
