@@ -1,0 +1,453 @@
+/* ==========================================================================
+   JOSHOS MARINE — service pages
+   Loaded after styles.css, on the four service pages only.
+
+   1. Shared: page header, framed drawing, numbered list, cross-links
+   2. Marine electrical      4. Boat trailer repairs
+   3. Boat servicing         5. Custom boat fit-outs
+   ========================================================================== */
+
+/* 1. Shared ---------------------------------------------------------------- */
+
+.page-hero { padding-bottom: clamp(3rem, 6vw, 5rem); }
+.page-hero__grid { display: grid; gap: clamp(2rem, 5vw, 3.5rem); align-items: center; }
+.page-hero__copy { position: relative; z-index: 2; min-width: 0; }
+.page-hero__title { margin-top: 1.1rem; font-size: clamp(2.75rem, 1.3rem + 6.2vw, 6rem); }
+.page-hero__call .icon { color: var(--signal-500); }
+.page-hero__art { min-width: 0; }
+@media (min-width: 960px) {
+  .page-hero__grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); }
+}
+
+.crumbs ol {
+  display: flex; flex-wrap: wrap; gap: .35em .7em;
+  font-family: var(--font-mono); font-size: .6875rem; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--text-light-soft);
+}
+.crumbs li + li::before { content: "/"; margin-right: .7em; opacity: .5; }
+.crumbs a { color: var(--foam-300); text-decoration: none; }
+.crumbs a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+
+/* the framed drawing: a blueprint panel with a caption strip */
+.plate {
+  border: 1px solid rgba(200, 243, 237, .18); border-radius: var(--radius);
+  background: var(--ink-950);
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .85);
+  overflow: hidden;
+}
+.plate__view {
+  position: relative;
+  background:
+    linear-gradient(rgba(151, 230, 220, .07) 1px, transparent 1px) 0 0 / 100% 28px,
+    linear-gradient(90deg, rgba(151, 230, 220, .07) 1px, transparent 1px) 0 0 / 28px 100%,
+    radial-gradient(90% 120% at 70% 30%, var(--ink-700), var(--ink-900) 70%);
+}
+.plate__view::after {
+  content: ""; position: absolute; inset: 12px; pointer-events: none;
+  background:
+    linear-gradient(var(--foam-300) 0 0) left top / 14px 1.5px,
+    linear-gradient(var(--foam-300) 0 0) left top / 1.5px 14px,
+    linear-gradient(var(--foam-300) 0 0) right top / 14px 1.5px,
+    linear-gradient(var(--foam-300) 0 0) right top / 1.5px 14px,
+    linear-gradient(var(--foam-300) 0 0) left bottom / 14px 1.5px,
+    linear-gradient(var(--foam-300) 0 0) left bottom / 1.5px 14px,
+    linear-gradient(var(--foam-300) 0 0) right bottom / 14px 1.5px,
+    linear-gradient(var(--foam-300) 0 0) right bottom / 1.5px 14px;
+  background-repeat: no-repeat;
+  opacity: .55;
+}
+.plate__view > svg { width: 100%; height: auto; --rig-sw: 1.8; --rig-bg: #0b2a45; }
+.plate__cap {
+  display: flex; justify-content: space-between; gap: 1rem;
+  padding: .7rem clamp(1.1rem, 3vw, 1.75rem);
+  border-top: 1px solid rgba(200, 243, 237, .16);
+  font-family: var(--font-mono); font-size: .625rem; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--text-light-soft);
+}
+.plate__cap b { font-weight: 500; color: var(--signal-400); }
+
+/* numbered markers and labels drawn inside the diagrams */
+.mk-dot { fill: var(--signal-500); }
+.mk-num {
+  font-family: var(--font-mono); font-size: 18px; font-weight: 700;
+  fill: var(--ink-900); text-anchor: middle; dominant-baseline: central;
+}
+.mk-num--lg { font-size: 21px; }
+.mk-lead { fill: none; stroke: var(--signal-500); stroke-width: 1.4; opacity: .85; }
+.mk-end { fill: var(--signal-500); }
+.dwg-label {
+  font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: .14em;
+  fill: var(--foam-300); opacity: .75;
+}
+.dwg-label--mid { text-anchor: middle; }
+.dwg-label--hot { fill: var(--signal-400); opacity: 1; }
+.dwg-label--lg { font-size: 17px; font-weight: 700; opacity: .9; }
+
+/* a numbered list that pairs with a diagram's markers */
+.legend { border-top: 2px solid var(--ink-900); }
+.legend > li {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.1rem; align-items: start;
+  padding: 1.3rem 0; border-bottom: 1px solid var(--sand-300);
+}
+.legend__n {
+  display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%;
+  background: var(--signal-500); color: var(--ink-900);
+  font-family: var(--font-mono); font-size: .8125rem; font-weight: 700;
+}
+.legend h3 {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(1.5rem, 1.3rem + .8vw, 1.875rem); line-height: 1; text-transform: uppercase;
+  color: var(--ink-900);
+}
+.legend p { margin-top: .45rem; font-size: 1rem; color: var(--text-soft); text-wrap: pretty; }
+@media (min-width: 800px) {
+  .legend { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 4vw, 4rem); }
+}
+
+/* plain list of warning signs */
+.signs { border-top: 2px solid var(--ink-900); }
+.signs li {
+  display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: .5rem; align-items: baseline;
+  padding: 1.05rem 0; border-bottom: 1px solid var(--sand-300);
+  font-size: 1.125rem; font-weight: 600; line-height: 1.35;
+}
+.signs b { font-family: var(--font-mono); font-size: .75rem; font-weight: 500; letter-spacing: .12em; color: var(--signal-700); }
+.signs--light { border-top-color: rgba(200, 243, 237, .5); }
+.signs--light li { border-bottom-color: rgba(200, 243, 237, .16); color: #fff; }
+.signs--light b { color: var(--signal-400); }
+
+.split { display: grid; gap: clamp(2.5rem, 5vw, 5rem); align-items: start; }
+@media (min-width: 1000px) { .split { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); } }
+.split__copy > .section-head__lede { margin-top: 1.4rem; }
+.split__copy .btn { margin-top: 2rem; }
+
+.fineprint { margin-top: 1.5rem; max-width: 46rem; font-size: .875rem; color: var(--text-soft); text-wrap: pretty; }
+.fineprint--light { color: var(--text-light-soft); }
+
+/* cards linking to the other services */
+@media (min-width: 1000px) { .svc-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.svc--link .svc__lede { margin-bottom: 1.6rem; }
+
+/* 2. Marine electrical ------------------------------------------------------ */
+
+/* voltmeter in the page header */
+.gauge__band { fill: none; stroke-width: 14; }
+.gauge__band--low { stroke: var(--signal-600); opacity: .8; }
+.gauge__band--mid { stroke: #e7b545; opacity: .8; }
+.gauge__band--ok { stroke: var(--foam-400); opacity: .9; }
+.gauge__tick { stroke: var(--foam-200); stroke-width: 2; stroke-linecap: round; }
+.gauge__tick--minor { stroke-width: 1.2; opacity: .5; }
+.gauge__num { font-family: var(--font-mono); font-size: 15px; font-weight: 500; fill: var(--foam-200); text-anchor: middle; dominant-baseline: central; opacity: .8; }
+.gauge__needle {
+  stroke: var(--signal-500); stroke-width: 4; stroke-linecap: round;
+  transform-box: view-box; transform-origin: 200px 214px; transform: rotate(10.8deg);
+  filter: drop-shadow(0 0 6px rgba(255, 106, 42, .7));
+  animation: needle-in 2.2s cubic-bezier(.3, 1.4, .5, 1) both, needle-idle 5s ease-in-out 2.4s infinite;
+}
+.gauge__hub { fill: var(--ink-900); stroke: var(--foam-200); stroke-width: 2; }
+.gauge__read { font-family: var(--font-mono); font-size: 34px; font-weight: 700; fill: #fff; text-anchor: middle; }
+.gauge__unit { font-size: 18px; fill: var(--foam-300); }
+.gauge__cap { font-family: var(--font-mono); font-size: 11px; letter-spacing: .18em; fill: var(--foam-300); text-anchor: middle; opacity: .75; }
+@keyframes needle-in { from { transform: rotate(-90deg); } to { transform: rotate(10.8deg); } }
+@keyframes needle-idle { 0%, 100% { transform: rotate(10.8deg); } 50% { transform: rotate(9.2deg); } }
+
+/* fault-finding chart */
+.chart {
+  border: 1px solid var(--sand-200); border-radius: var(--radius);
+  background: var(--paper); box-shadow: var(--shadow-card); overflow: hidden;
+}
+.chart__head { display: none; }
+.chart__row { display: grid; gap: .6rem; padding: 1.35rem clamp(1.2rem, 3vw, 2rem); border-top: 1px solid var(--sand-200); }
+.chart__row:first-of-type { border-top: 0; }
+.chart__k {
+  display: block; margin-bottom: .3rem;
+  font-family: var(--font-mono); font-size: .6875rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--signal-700);
+}
+.chart__sym {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(1.375rem, 1.2rem + .7vw, 1.75rem); line-height: 1.05; text-transform: uppercase;
+  color: var(--ink-900);
+}
+.chart__cause { color: var(--text-soft); text-wrap: pretty; }
+@media (min-width: 860px) {
+  .chart__head, .chart__row { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 2.5rem; }
+  .chart__head {
+    padding: .9rem clamp(1.2rem, 3vw, 2rem);
+    background: var(--ink-900); color: var(--foam-300);
+    font-family: var(--font-mono); font-size: .6875rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+  }
+  .chart__row { align-items: baseline; }
+  .chart__row:first-of-type { border-top: 0; }
+  .chart__k { display: none; }
+}
+
+/* the jobs, set out like the circuits on a panel */
+.circuits {
+  display: grid; gap: 1px;
+  background: rgba(200, 243, 237, .14); border: 1px solid rgba(200, 243, 237, .14);
+  border-radius: var(--radius); overflow: hidden;
+}
+.circuit { padding: clamp(1.3rem, 2.6vw, 1.9rem); background: var(--ink-850); transition: background-color .3s; }
+.circuit:hover { background: var(--ink-800); }
+.circuit__id {
+  display: inline-flex; align-items: center; gap: .6rem; padding: .3rem .65rem;
+  border: 1px solid rgba(151, 230, 220, .3); border-radius: 6px;
+  font-family: var(--font-mono); font-size: .6875rem; font-weight: 500; letter-spacing: .14em; color: var(--foam-300);
+}
+.circuit h3 {
+  margin-top: 1rem;
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(1.5rem, 1.3rem + .9vw, 1.9rem); line-height: 1; text-transform: uppercase; color: #fff;
+}
+.circuit p { margin-top: .55rem; font-size: 1rem; color: var(--text-light-soft); text-wrap: pretty; }
+@media (min-width: 760px) { .circuits { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* voltage drop tool */
+.vdrop {
+  display: grid; border-radius: calc(var(--radius) + 4px); overflow: hidden;
+  background: var(--ink-900); color: #fff;
+  box-shadow: 0 40px 70px -40px rgba(6, 24, 42, .9);
+}
+.vdrop__inputs { display: grid; gap: 1.6rem; padding: clamp(1.4rem, 3.2vw, 2.4rem); }
+.vdrop__field { display: grid; grid-template-columns: 1fr auto; gap: .5rem 1rem; align-items: baseline; }
+.vdrop__field label { font-family: var(--font-display); font-weight: 800; font-size: 1.375rem; letter-spacing: .03em; text-transform: uppercase; }
+.vdrop__val { font-family: var(--font-mono); font-size: 1.125rem; font-weight: 700; color: var(--signal-400); }
+.vdrop__field input[type="range"], .vdrop__field select, .vdrop__hint { grid-column: 1 / -1; }
+.vdrop__hint { font-size: .875rem; color: var(--text-light-soft); }
+.vdrop input[type="range"] {
+  -webkit-appearance: none; appearance: none; width: 100%; height: 28px; margin: 0; background: transparent; cursor: pointer;
+}
+.vdrop input[type="range"]::-webkit-slider-runnable-track { height: 6px; border-radius: 3px; background: rgba(200, 243, 237, .22); }
+.vdrop input[type="range"]::-moz-range-track { height: 6px; border-radius: 3px; background: rgba(200, 243, 237, .22); }
+.vdrop input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 26px; height: 26px; margin-top: -10px; border-radius: 50%;
+  background: var(--signal-500); border: 3px solid var(--ink-900); box-shadow: 0 0 0 2px var(--signal-500);
+}
+.vdrop input[type="range"]::-moz-range-thumb {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--signal-500); border: 3px solid var(--ink-900); box-shadow: 0 0 0 2px var(--signal-500);
+}
+.vdrop select {
+  width: 100%; min-height: 50px; padding: .6rem 2.6rem .6rem .9rem;
+  border: 1.5px solid rgba(200, 243, 237, .28); border-radius: 12px;
+  background: var(--ink-850) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2397e6dc' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right .8rem center / 1.2rem no-repeat;
+  color: #fff; font-size: 1.0625rem; font-weight: 600;
+  -webkit-appearance: none; appearance: none;
+}
+.vdrop__result {
+  display: grid; align-content: center; gap: .9rem;
+  padding: clamp(1.4rem, 3.2vw, 2.4rem);
+  background: var(--ink-850); border-top: 1px solid rgba(200, 243, 237, .14);
+}
+.vdrop__k { font-family: var(--font-mono); font-size: .6875rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--foam-300); }
+.vdrop__big {
+  font-family: var(--font-display); font-weight: 900; font-size: clamp(4.5rem, 3rem + 7vw, 7rem); line-height: .85;
+  color: var(--foam-200); transition: color .3s;
+}
+.vdrop__big small { font-size: .4em; margin-left: .1em; }
+.vdrop__bar { position: relative; height: 10px; border-radius: 5px; background: rgba(200, 243, 237, .14); }
+.vdrop__bar i { display: block; height: 100%; width: 16%; border-radius: 5px; background: var(--foam-400); transition: width .35s var(--ease-out), background-color .3s; }
+.vdrop__bar::before, .vdrop__bar::after { content: ""; position: absolute; top: -4px; bottom: -4px; width: 2px; background: rgba(255, 255, 255, .55); }
+.vdrop__bar::before { left: 20%; }
+.vdrop__bar::after { left: 66.666%; }
+.vdrop__scale {
+  position: relative; height: 1em; margin-top: .6rem;
+  font-family: var(--font-mono); font-size: .6875rem; letter-spacing: .08em; line-height: 1; color: var(--text-light-soft);
+}
+.vdrop__scale span { position: absolute; top: 0; left: 0; }
+.vdrop__scale span:nth-child(2) { left: 20%; transform: translateX(-50%); }
+.vdrop__scale span:nth-child(3) { left: 66.666%; transform: translateX(-50%); }
+.vdrop__line { color: var(--text-light); }
+.vdrop__line b { color: #fff; }
+.vdrop__verdict { font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; line-height: 1.1; text-transform: uppercase; color: var(--foam-300); }
+.vdrop__tip { font-size: .9375rem; color: var(--text-light-soft); }
+.vdrop[data-level="ok"] .vdrop__big, .vdrop[data-level="ok"] .vdrop__verdict { color: #f2c35a; }
+.vdrop[data-level="ok"] .vdrop__bar i { background: #e7b545; }
+.vdrop[data-level="bad"] .vdrop__big, .vdrop[data-level="bad"] .vdrop__verdict { color: var(--signal-400); }
+.vdrop[data-level="bad"] .vdrop__bar i { background: var(--signal-500); }
+@media (min-width: 860px) {
+  .vdrop { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); }
+  .vdrop__result { border-top: 0; border-left: 1px solid rgba(200, 243, 237, .14); }
+}
+
+/* what we find / what we leave */
+.versus { display: grid; gap: clamp(1rem, 2vw, 1.5rem); }
+.versus__col { padding: clamp(1.4rem, 3vw, 2.25rem); border-radius: var(--radius); }
+.versus__col--bad { border: 2px dashed var(--sand-300); }
+.versus__col--good { background: var(--ink-900); color: #fff; box-shadow: var(--shadow-card); }
+.versus__k { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.375rem); line-height: 1; text-transform: uppercase; }
+.versus ul { display: grid; gap: .85rem; margin-top: 1.4rem; }
+.versus li { position: relative; padding-left: 2rem; font-weight: 500; }
+.versus__col--bad li { color: var(--text-soft); }
+.versus__col--bad li::before, .versus__col--bad li::after {
+  content: ""; position: absolute; left: .15rem; top: .72em; width: 1rem; height: 2.5px; border-radius: 2px; background: var(--signal-700);
+}
+.versus__col--bad li::before { transform: rotate(45deg); }
+.versus__col--bad li::after { transform: rotate(-45deg); }
+.versus__col--good li::before {
+  content: ""; position: absolute; left: .2rem; top: .45em; width: .85rem; height: .45rem;
+  border: solid var(--foam-400); border-width: 0 0 2.5px 2.5px; transform: rotate(-45deg);
+}
+@media (min-width: 800px) { .versus { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* 3. Boat servicing --------------------------------------------------------- */
+
+/* the service sheet: a job card */
+.sheet {
+  position: relative;
+  border: 1px solid var(--sand-200); border-radius: 6px;
+  background:
+    linear-gradient(90deg, transparent 2.6rem, rgba(233, 84, 15, .28) 2.6rem, rgba(233, 84, 15, .28) calc(2.6rem + 1.5px), transparent calc(2.6rem + 1.5px)),
+    var(--paper);
+  box-shadow: var(--shadow-card), 6px 6px 0 -1px var(--sand-100), 6px 6px 0 0 var(--sand-200);
+}
+.sheet__head {
+  display: grid; gap: 1rem; padding: clamp(1.2rem, 2.6vw, 1.75rem) clamp(1.2rem, 3vw, 2rem) clamp(1.2rem, 2.6vw, 1.75rem) 3.6rem;
+  border-bottom: 2px solid var(--ink-900);
+}
+.sheet__title { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.375rem); line-height: 1; text-transform: uppercase; color: var(--ink-900); }
+.sheet__meta { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; font-family: var(--font-mono); font-size: .6875rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-soft); }
+.sheet__meta div { display: flex; align-items: flex-end; gap: .5rem; }
+.sheet__meta dd { width: 5.5rem; height: 1.1em; border-bottom: 1px dashed var(--sand-300); }
+.sheet__lines > li {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; align-items: start;
+  position: relative; padding: 1.25rem clamp(1.2rem, 3vw, 2rem) 1.25rem 3.6rem;
+  border-bottom: 1px solid var(--sand-200);
+}
+.sheet__n {
+  position: absolute; left: .55rem; top: 1.2rem; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%;
+  background: var(--signal-500); color: var(--ink-900); font-family: var(--font-mono); font-size: .75rem; font-weight: 700;
+}
+.sheet__lines h3 { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.5rem, 1.3rem + .8vw, 1.875rem); line-height: 1; text-transform: uppercase; color: var(--ink-900); }
+.sheet__lines p { margin-top: .45rem; font-size: 1rem; color: var(--text-soft); text-wrap: pretty; }
+.sheet__box { position: relative; width: 1.75rem; height: 1.75rem; margin-top: .1rem; border: 2px solid var(--ink-900); border-radius: 4px; }
+.sheet__box::after {
+  content: ""; position: absolute; left: .32rem; top: -.28rem; width: 1.35rem; height: .7rem;
+  border: solid var(--signal-600); border-width: 0 0 3.5px 3.5px; transform: rotate(-48deg); transform-origin: center;
+}
+.sheet__foot {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.1rem clamp(1.2rem, 3vw, 2rem) 1.2rem 3.6rem;
+  font-family: var(--font-mono); font-size: .6875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-soft);
+}
+.sheet__stamp {
+  padding: .45rem .8rem; border: 2.5px solid var(--signal-700); border-radius: 6px;
+  font-family: var(--font-display); font-weight: 900; font-size: 1.0625rem; letter-spacing: .1em; color: var(--signal-700);
+  transform: rotate(-4deg); opacity: .85;
+}
+
+.trio { display: grid; gap: clamp(1rem, 2vw, 1.5rem); margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+.trio__item { padding: clamp(1.3rem, 2.6vw, 1.9rem); border: 2px dashed var(--sand-300); border-radius: var(--radius); }
+.trio__item .icon { width: 1.75rem; height: 1.75rem; color: var(--signal-700); }
+.trio__item h3 { margin-top: .9rem; font-family: var(--font-display); font-weight: 900; font-size: clamp(1.5rem, 1.3rem + .8vw, 1.875rem); line-height: 1; text-transform: uppercase; color: var(--ink-900); }
+.trio__item p { margin-top: .5rem; font-size: 1rem; color: var(--text-soft); text-wrap: pretty; }
+@media (min-width: 900px) { .trio { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* service rhythm: how often things are due */
+.rhythm { display: grid; gap: 1px; background: rgba(200, 243, 237, .14); border: 1px solid rgba(200, 243, 237, .14); border-radius: var(--radius); overflow: hidden; }
+.rhythm__stop { position: relative; padding: clamp(1.4rem, 3vw, 2.25rem); background: var(--ink-850); }
+.rhythm__k { font-family: var(--font-mono); font-size: .6875rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--foam-300); }
+.rhythm__when { margin-top: .6rem; font-family: var(--font-display); font-weight: 900; font-size: clamp(2.25rem, 1.6rem + 2.6vw, 3.5rem); line-height: .9; text-transform: uppercase; color: var(--signal-500); }
+.rhythm__when small { display: block; margin-top: .35rem; font-size: .42em; letter-spacing: .04em; color: #fff; }
+.rhythm__stop p:last-child { margin-top: 1rem; color: var(--text-light-soft); text-wrap: pretty; }
+.rhythm__stop--main { background: var(--ink-800); }
+@media (min-width: 900px) { .rhythm { grid-template-columns: 1fr 1.25fr 1fr; } }
+
+/* 4. Boat trailer repairs --------------------------------------------------- */
+
+.exploded { border: 1px solid rgba(200, 243, 237, .16); border-radius: var(--radius); background: var(--ink-850); overflow: hidden; }
+.exploded__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.exploded__scroll svg { width: 100%; min-width: 640px; max-width: 980px; margin-inline: auto; height: auto; --rig-sw: 1.8; --rig-bg: var(--ink-850); }
+.exploded__hint { padding: .6rem 1rem; border-top: 1px solid rgba(200, 243, 237, .14); font-family: var(--font-mono); font-size: .625rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-light-soft); }
+@media (min-width: 700px) { .exploded__hint { display: none; } }
+.facts { display: grid; gap: 1.5rem clamp(1.5rem, 3vw, 3rem); margin-top: clamp(1.75rem, 3.5vw, 3rem); }
+.facts h3 { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.5rem, 1.3rem + .8vw, 1.875rem); line-height: 1; text-transform: uppercase; color: #fff; }
+.facts p { margin-top: .5rem; color: var(--text-light-soft); text-wrap: pretty; }
+.facts b { display: block; margin-bottom: .7rem; font-family: var(--font-mono); font-size: .75rem; font-weight: 500; letter-spacing: .14em; color: var(--signal-400); }
+.hub-notes { margin-top: clamp(2.5rem, 5vw, 4rem); }
+.hub-notes .facts { margin-top: 0; gap: 2rem; }
+.hub-notes__title {
+  margin-bottom: 1rem;
+  font-family: var(--font-mono); font-size: .6875rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--foam-300);
+}
+
+/* the pre-tow check */
+.pretow { border: 1px solid var(--sand-200); border-radius: var(--radius); background: var(--paper); box-shadow: var(--shadow-card); overflow: hidden; }
+.pretow__item {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: center;
+  padding: 1.05rem clamp(1.1rem, 3vw, 1.75rem); border-bottom: 1px solid var(--sand-200);
+  cursor: pointer; transition: background-color .2s;
+}
+.pretow__item:hover { background: var(--sand-50); }
+.pretow__item input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.pretow__box { position: relative; width: 2rem; height: 2rem; border: 2px solid var(--ink-900); border-radius: 8px; background: #fff; transition: background-color .2s, border-color .2s; }
+.pretow__box::after {
+  content: ""; position: absolute; left: .5rem; top: .45rem; width: .9rem; height: .5rem;
+  border: solid var(--ink-900); border-width: 0 0 3px 3px; transform: rotate(-45deg) scale(0); transition: transform .25s var(--ease-out);
+}
+.pretow__item input:checked + .pretow__box { background: var(--signal-500); border-color: var(--signal-500); }
+.pretow__item input:checked + .pretow__box::after { transform: rotate(-45deg) scale(1); }
+.pretow__item input:focus-visible + .pretow__box { outline: 3px solid var(--signal-500); outline-offset: 3px; }
+.pretow__text b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 1.375rem; line-height: 1.05; letter-spacing: .01em; text-transform: uppercase; color: var(--ink-900); }
+.pretow__text span { display: block; margin-top: .15rem; font-size: .9375rem; color: var(--text-soft); }
+.pretow__item input:checked ~ .pretow__text b { color: var(--text-soft); text-decoration: line-through; text-decoration-thickness: 2px; }
+.pretow__status {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1rem clamp(1.1rem, 3vw, 1.75rem);
+  background: var(--ink-900); color: #fff;
+  font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; letter-spacing: .04em; text-transform: uppercase;
+  transition: background-color .3s, color .3s;
+}
+.pretow.is-done .pretow__status { background: var(--signal-500); color: var(--ink-900); }
+.pretow__reset { padding: .3rem .2rem; border: 0; background: none; color: inherit; font: inherit; font-size: .9375rem; text-transform: none; letter-spacing: 0; font-family: var(--font-body); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; opacity: .85; }
+
+/* 5. Custom boat fit-outs --------------------------------------------------- */
+
+.zone-hl { fill: rgba(255, 106, 42, .34); stroke: none; }
+.zones { display: grid; gap: clamp(1rem, 2vw, 1.5rem); }
+.zone {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--sand-200); border-radius: var(--radius); background: var(--paper);
+  box-shadow: var(--shadow-card); overflow: hidden;
+}
+.zone__plan { background: var(--ink-900); padding: .9rem 1rem .7rem; }
+.zone__plan svg { width: 100%; height: auto; --rig-sw: 2.4; --rig-stroke: rgba(200, 243, 237, .55); --rig-bg: var(--ink-900); }
+.zone__body { padding: clamp(1.2rem, 2.4vw, 1.75rem); }
+.zone__k { font-family: var(--font-mono); font-size: .6875rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--signal-700); }
+.zone h3 { margin-top: .4rem; font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 1.6rem + 1.6vw, 2.625rem); line-height: .95; text-transform: uppercase; color: var(--ink-900); }
+.zone dl { display: grid; gap: 1rem; margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px dashed var(--sand-300); }
+.zone dt { font-weight: 700; color: var(--ink-900); }
+.zone dd { margin-top: .2rem; font-size: .9375rem; color: var(--text-soft); text-wrap: pretty; }
+.zone dd a { color: var(--signal-700); font-weight: 600; text-underline-offset: 3px; }
+@media (min-width: 700px) { .zones { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1180px) { .zones { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.principles { display: grid; gap: clamp(1.75rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 3rem); }
+.principle { padding-top: 1.25rem; border-top: 2px solid var(--signal-500); }
+.principle b { font-family: var(--font-mono); font-size: .75rem; font-weight: 500; letter-spacing: .14em; color: var(--signal-400); }
+.principle h3 { margin-top: .7rem; font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 1.6rem + 1.6vw, 2.75rem); line-height: .95; text-transform: uppercase; color: #fff; }
+.principle p { margin-top: .7rem; color: var(--text-light-soft); text-wrap: pretty; }
+@media (min-width: 640px) { .principles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .principles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.notes { display: grid; gap: clamp(1rem, 2vw, 1.5rem); }
+.note {
+  position: relative; padding: clamp(1.4rem, 3vw, 2rem) clamp(1.3rem, 2.6vw, 1.75rem) clamp(1.3rem, 2.6vw, 1.75rem);
+  border-radius: 4px 4px var(--radius) 4px;
+  background: var(--paper); box-shadow: var(--shadow-card);
+  font-family: var(--font-serif); font-style: italic; font-size: clamp(1.5rem, 1.3rem + .9vw, 1.9rem); line-height: 1.15; color: var(--ink-900);
+}
+.note::before { content: ""; position: absolute; left: 1.3rem; top: -7px; width: 3.25rem; height: 14px; background: rgba(255, 106, 42, .55); transform: rotate(-3deg); }
+.note:nth-child(odd) { transform: rotate(-.8deg); }
+.note:nth-child(even) { transform: rotate(.7deg); }
+.note:nth-child(3n)::before { left: auto; right: 1.3rem; transform: rotate(4deg); }
+@media (min-width: 640px) { .notes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .notes { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.notes-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; margin-top: clamp(2rem, 4vw, 3rem); }
+.notes-cta p { max-width: 32rem; color: var(--text-soft); }
+
+@media (prefers-reduced-motion: reduce) {
+  .gauge__needle { animation: none; }
+}

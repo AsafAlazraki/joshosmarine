@@ -1,0 +1,286 @@
+    <!-- The deck plan: drawn once here, used at the top of the page and again,
+         smaller, on each of the four zone cards. Bow to the right. -->
+    <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <defs>
+        <clipPath id="deck-clip"><path d="M40 62H392Q548 64 606 150 548 236 392 238H40z"/></clipPath>
+        <g id="deck">
+          <!-- hull and gunwale -->
+          <path class="rg rg--body" d="M40 62H392Q548 64 606 150 548 236 392 238H40z"/>
+          <path class="rg rg--thin" d="M54 76H390Q538 78 588 150 538 222 390 224H54z"/>
+          <path class="rg rg--faint rg--dash" d="M54 150H588"/>
+          <!-- outboard on the transom -->
+          <rect class="rg rg--body" x="6" y="130" width="36" height="40" rx="9"/>
+          <path class="rg rg--thin" d="M14 142h18M14 150h12"/>
+          <!-- stern: live bait tank, bait board with rod holders, battery box -->
+          <rect class="rg rg--thin" x="64" y="84" width="44" height="27" rx="7"/>
+          <circle class="rg rg--faint" cx="86" cy="97.5" r="6"/>
+          <rect class="rg rg--body" x="62" y="121" width="20" height="58" rx="3"/>
+          <circle class="rg rg--thin" cx="72" cy="131" r="3.5"/>
+          <circle class="rg rg--thin" cx="72" cy="169" r="3.5"/>
+          <rect class="rg rg--thin" x="64" y="189" width="44" height="27" rx="4"/>
+          <path class="rg rg--thin" d="M74 189v-4h8v4M90 189v-4h8v4"/>
+          <!-- deck: rod racks under the gunwales, rod holders, leaning post -->
+          <path class="rg rg--tube" d="M132 86H222M132 214H222"/>
+          <circle class="rg rg--thin" cx="142" cy="69" r="4.5"/>
+          <circle class="rg rg--thin" cx="170" cy="69" r="4.5"/>
+          <circle class="rg rg--thin" cx="198" cy="69" r="4.5"/>
+          <circle class="rg rg--thin" cx="142" cy="231" r="4.5"/>
+          <circle class="rg rg--thin" cx="170" cy="231" r="4.5"/>
+          <circle class="rg rg--thin" cx="198" cy="231" r="4.5"/>
+          <rect class="rg rg--body" x="186" y="124" width="30" height="52" rx="10"/>
+          <!-- helm: T-top overhead, console, screen and wheel -->
+          <rect class="rg rg--faint rg--dash" x="176" y="100" width="170" height="100" rx="12"/>
+          <rect class="rg rg--body" x="262" y="118" width="62" height="64" rx="8"/>
+          <rect class="rg rg--screen" x="298" y="131" width="18" height="38" rx="3"/>
+          <circle class="rg rg--thin" cx="250" cy="150" r="13"/>
+          <circle class="rg rg--thin" cx="250" cy="150" r="3"/>
+          <!-- bow: casting deck, hatch, anchor well, bow-mount electric motor -->
+          <path class="rg rg--body" d="M424 82Q532 86 580 150 532 214 424 218z"/>
+          <rect class="rg rg--thin" x="446" y="126" width="52" height="48" rx="4"/>
+          <path class="rg rg--thin" d="M466 150h12"/>
+          <path class="rg rg--thin" d="M548 136q12 14 0 28"/>
+          <rect class="rg rg--body" x="582" y="142" width="22" height="16" rx="3"/>
+          <path class="rg rg--tube" d="M582 150H534"/>
+          <ellipse class="rg rg--body" cx="527" cy="150" rx="8" ry="6"/>
+        </g>
+      </defs>
+    </svg>
+
+    <!-- ==================================================================
+         Custom fit-outs: page header with the deck plan
+         ================================================================== -->
+    <section class="hero page-hero" id="top">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="contours"></div>
+        <div class="hero__glow"></div>
+        <div class="grain"></div>
+      </div>
+
+      <div class="container page-hero__grid">
+        <div class="page-hero__copy">
+          {{crumbs}}
+
+          <h1 class="display display--light page-hero__title" data-reveal style="--d:.06s">Custom boat <span class="nb">fit-outs</span> <em>in North Brisbane.</em></h1>
+
+          <p class="hero__lede" data-reveal style="--d:.14s">
+            Boats laid out around the way you fish, dive or cruise, for owners across North Brisbane.
+            Gear goes where it makes sense, and the wiring behind it stays tidy.
+          </p>
+
+          <div class="hero__cta" data-reveal style="--d:.22s">
+            <a class="btn btn--primary btn--lg" href="{{book}}">{{book_label}} {{arrow}}</a>
+            <a class="btn btn--ghost btn--lg page-hero__call" href="tel:{{tel}}" data-tel>
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              <span>Call <span data-phone>{{phone}}</span></span>
+            </a>
+          </div>
+
+          <ul class="hero__points" data-reveal style="--d:.3s">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Quote before work starts</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Planned with you first</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Wiring done properly</li>
+          </ul>
+        </div>
+
+        <div class="page-hero__art" data-reveal style="--d:.2s">
+          <div class="plate">
+            <div class="plate__view">
+              <svg viewBox="0 0 640 300" role="img" aria-labelledby="deck-title">
+                <title id="deck-title">Top-down plan of a centre console boat, divided into stern, deck, helm and bow</title>
+                <path class="rg rg--faint" d="M40 30v14M125 30v14M240 30v14M420 30v14M606 30v14M40 37H606"/>
+                <text class="dwg-label dwg-label--mid dwg-label--lg" x="82" y="24">STERN</text>
+                <text class="dwg-label dwg-label--mid dwg-label--lg" x="182" y="24">DECK</text>
+                <text class="dwg-label dwg-label--mid dwg-label--lg" x="330" y="24">HELM</text>
+                <text class="dwg-label dwg-label--mid dwg-label--lg" x="513" y="24">BOW</text>
+                <use href="#deck"/>
+                <!-- the 12V run from the battery to the console and the bow -->
+                <path class="rg rg--hot rg--flow" d="M108 203H250V184M250 203H470Q552 200 586 160"/>
+                <path class="rg rg--faint" d="M40 262v14M606 262v14M40 269H606"/>
+                <text class="dwg-label dwg-label--mid" x="323" y="291">LAID OUT AROUND HOW YOU USE IT</text>
+              </svg>
+            </div>
+            <p class="plate__cap"><b>Dwg 04</b><span>Deck plan, bow to the right</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Zone by zone
+         ================================================================== -->
+    <section class="section section--sand" id="included">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__num">01</span>What's covered</p>
+            <h2 class="display" data-reveal>Zone <em>by zone.</em></h2>
+          </div>
+          <p class="section-head__lede" data-reveal>
+            A fit-out can be one bait board or the whole boat. This is what we build in, working
+            from the transom forward.
+          </p>
+        </header>
+
+        <div class="zones">
+          <article class="zone" data-reveal>
+            <div class="zone__plan" aria-hidden="true">
+              <svg viewBox="0 52 640 196"><rect class="zone-hl" x="40" y="50" width="85" height="200" clip-path="url(#deck-clip)"/><use href="#deck"/></svg>
+            </div>
+            <div class="zone__body">
+              <p class="zone__k">Zone 01</p>
+              <h3>Stern</h3>
+              <dl>
+                <div><dt>Bait boards &amp; cutting stations</dt><dd>A board at the right height, with somewhere for the knives, the bait and the mess to go.</dd></div>
+                <div><dt>Live bait tanks &amp; plumbing</dt><dd>Tanks, pumps and plumbing set up to keep bait alive and to drain where they should.</dd></div>
+                <div><dt>Battery boxes &amp; hidden cabling</dt><dd>Batteries secured and cabling run out of sight, so nothing is underfoot or sitting in the bilge.</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="zone" data-reveal style="--d:.06s">
+            <div class="zone__plan" aria-hidden="true">
+              <svg viewBox="0 52 640 196"><rect class="zone-hl" x="125" y="50" width="115" height="200" clip-path="url(#deck-clip)"/><use href="#deck"/></svg>
+            </div>
+            <div class="zone__body">
+              <p class="zone__k">Zone 02</p>
+              <h3>Deck</h3>
+              <dl>
+                <div><dt>Rod holders &amp; rod storage</dt><dd>Holders and racks placed where they are in reach and out of the way, and fixed so they stay put.</dd></div>
+                <div><dt>Seating &amp; pedestals</dt><dd>Seats and pedestals mounted solidly, at a height and position that suits the person using them.</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="zone" data-reveal style="--d:.12s">
+            <div class="zone__plan" aria-hidden="true">
+              <svg viewBox="0 52 640 196"><rect class="zone-hl" x="240" y="50" width="180" height="200" clip-path="url(#deck-clip)"/><use href="#deck"/></svg>
+            </div>
+            <div class="zone__body">
+              <p class="zone__k">Zone 03</p>
+              <h3>Helm</h3>
+              <dl>
+                <div><dt>Dash &amp; console layouts</dt><dd>Screens, switches and gauges arranged so you can see and reach them, with a clean panel behind.</dd></div>
+                <div><dt>Wired as part of the job</dt><dd>New screens, lights and pumps get a proper fused supply, run with the rest of the <a href="../marine-electrical/">12V work</a>.</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="zone" data-reveal style="--d:.18s">
+            <div class="zone__plan" aria-hidden="true">
+              <svg viewBox="0 52 640 196"><rect class="zone-hl" x="420" y="50" width="190" height="200" clip-path="url(#deck-clip)"/><use href="#deck"/></svg>
+            </div>
+            <div class="zone__body">
+              <p class="zone__k">Zone 04</p>
+              <h3>Bow</h3>
+              <dl>
+                <div><dt>Casting decks &amp; hatches</dt><dd>Raised decks with dry storage underneath, and hatches that open without everything being moved first.</dd></div>
+                <div><dt>Electric motor bow mounts</dt><dd>A mount, plug and heavy cabling for a bow-mount electric, with the battery where the weight suits the boat.</dd></div>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         What makes a layout work
+         ================================================================== -->
+    <section class="section section--ink" id="principles">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--light" data-reveal><span class="eyebrow__num">02</span>The thinking</p>
+          <h2 class="display display--light" data-reveal>What makes a layout <em>work.</em></h2>
+          <p class="section-head__lede section-head__lede--light" data-reveal>
+            Bolting gear on is the easy part. Four things decide whether it is still a pleasure
+            to use a season later.
+          </p>
+        </header>
+
+        <ul class="principles">
+          <li class="principle" data-reveal>
+            <b aria-hidden="true">/01</b>
+            <h3>Reach</h3>
+            <p>The things you grab most sit where your hands already are. Rods, pliers and the bait board shouldn't need a walk across the deck.</p>
+          </li>
+          <li class="principle" data-reveal style="--d:.06s">
+            <b aria-hidden="true">/02</b>
+            <h3>Weight</h3>
+            <p>Batteries, tanks and eskies change how a small boat sits and rides, so the heavy items are placed with trim in mind.</p>
+          </li>
+          <li class="principle" data-reveal style="--d:.12s">
+            <b aria-hidden="true">/03</b>
+            <h3>Water</h3>
+            <p>Everything that gets wet has to drain. Decks, hatches and tanks are set up so water leaves the boat and stays away from the wiring.</p>
+          </li>
+          <li class="principle" data-reveal style="--d:.18s">
+            <b aria-hidden="true">/04</b>
+            <h3>Wiring</h3>
+            <p>Cable runs are planned before any holes are cut, so new gear gets a fused supply and nothing is left dangling.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Reasons to rework it
+         ================================================================== -->
+    <section class="section section--sand" id="reasons">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">03</span>Sound familiar?</p>
+          <h2 class="display" data-reveal>Reasons to <em>rework it.</em></h2>
+          <p class="section-head__lede" data-reveal>
+            Most boats are laid out for nobody in particular. If any of these sound like yours,
+            it is worth a conversation.
+          </p>
+        </header>
+
+        <ul class="notes">
+          <li class="note" data-reveal>“I've just bought it, and the layout isn't me.”</li>
+          <li class="note" data-reveal style="--d:.05s">“Gear's bolted on wherever it happened to fit.”</li>
+          <li class="note" data-reveal style="--d:.1s">“There's nowhere dry to put anything.”</li>
+          <li class="note" data-reveal>“New electronics are going in anyway.”</li>
+          <li class="note" data-reveal style="--d:.05s">“I keep tripping over batteries, tubs and cables.”</li>
+          <li class="note" data-reveal style="--d:.1s">“It was set up for someone else's kind of fishing.”</li>
+        </ul>
+
+        <div class="notes-cta" data-reveal>
+          <a class="btn btn--dark" href="{{book}}">{{book_label}} {{arrow}}</a>
+          <p>Tell us how you use the boat and what annoys you about it now. Photos help.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Questions
+         ================================================================== -->
+    <section class="section section--paper" id="faq">
+      <div class="container faq__grid">
+        <header class="section-head faq__head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">04</span>Good to know</p>
+          <h2 class="display" data-reveal>Fit-out <em>questions.</em></h2>
+          <p class="section-head__lede" data-reveal>
+            Can't see yours here? Ask it in the <a href="{{book}}">booking form</a> or
+            <a href="#contact">give us a call</a>.
+          </p>
+        </header>
+
+        {{faq}}
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         The other services
+         ================================================================== -->
+    <section class="section section--sand" id="more">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">05</span>More from Joshos Marine</p>
+          <h2 class="display" data-reveal>The rest of <em>the rig.</em></h2>
+        </header>
+
+        {{others}}
+      </div>
+    </section>
+
+    {{contact}}

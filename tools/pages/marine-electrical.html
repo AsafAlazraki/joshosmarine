@@ -1,0 +1,304 @@
+    <!-- ==================================================================
+         Marine electrical: page header with a voltmeter
+         ================================================================== -->
+    <section class="hero page-hero" id="top">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="contours"></div>
+        <div class="hero__glow"></div>
+        <div class="grain"></div>
+      </div>
+
+      <div class="container page-hero__grid">
+        <div class="page-hero__copy">
+          {{crumbs}}
+
+          <h1 class="display display--light page-hero__title" data-reveal style="--d:.06s">12V marine electrical <em>in North Brisbane.</em></h1>
+
+          <p class="hero__lede" data-reveal style="--d:.14s">
+            Clean, fused and labelled 12V work for trailer boats across North Brisbane,
+            from a single sounder install to a full rewire.
+          </p>
+
+          <div class="hero__cta" data-reveal style="--d:.22s">
+            <a class="btn btn--primary btn--lg" href="{{book}}">{{book_label}} {{arrow}}</a>
+            <a class="btn btn--ghost btn--lg page-hero__call" href="tel:{{tel}}" data-tel>
+              <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              <span>Call <span data-phone>{{phone}}</span></span>
+            </a>
+          </div>
+
+          <ul class="hero__points" data-reveal style="--d:.3s">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Quote before work starts</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Tinned marine cable</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Every circuit fused and labelled</li>
+          </ul>
+        </div>
+
+        <div class="page-hero__art" data-reveal style="--d:.2s">
+          <div class="plate">
+            <div class="plate__view">
+              <svg viewBox="0 0 400 310" role="img" aria-labelledby="gauge-title">
+                <title id="gauge-title">A voltmeter reading 12.8 volts, in the healthy part of the scale</title>
+                <path class="gauge__band gauge__band--low" d="M50 214A150 150 0 0 1 136.1 78.3"/>
+                <path class="gauge__band gauge__band--mid" d="M136.1 78.3A150 150 0 0 1 190.6 64.3"/>
+                <path class="gauge__band gauge__band--ok" d="M190.6 64.3A150 150 0 0 1 345.3 176.7"/>
+                <path class="gauge__band gauge__band--low" d="M345.3 176.7A150 150 0 0 1 350 214"/>
+                <path class="gauge__tick" d="M64 214h14M90 134.1l11.3 8.2M158 84.7l4.3 13.3M242 84.7l-4.3 13.3M310 134.1l-11.3 8.2M336 214h-14"/>
+                <path class="gauge__tick gauge__tick--minor" d="M70.7 172l7.6 2.4M120.1 104l4.7 6.4M200 78v8M279.9 104l-4.7 6.4M329.3 172l-7.6 2.4"/>
+                <text class="gauge__num" x="96" y="214">10</text>
+                <text class="gauge__num" x="115.9" y="152.9">11</text>
+                <text class="gauge__num" x="167.9" y="115.1">12</text>
+                <text class="gauge__num" x="232.1" y="115.1">13</text>
+                <text class="gauge__num" x="284.1" y="152.9">14</text>
+                <text class="gauge__num" x="304" y="214">15</text>
+                <line class="gauge__needle" x1="200" y1="234" x2="200" y2="98"/>
+                <circle class="gauge__hub" cx="200" cy="214" r="11"/>
+                <text class="gauge__read" x="200" y="274">12.8<tspan class="gauge__unit" dx="6">V</tspan></text>
+                <text class="gauge__cap" x="200" y="296">HOUSE BATTERY · AT REST</text>
+              </svg>
+            </div>
+            <p class="plate__cap"><b>Reading 01</b><span>Where it should sit</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Fault-finding chart
+         ================================================================== -->
+    <section class="section section--sand" id="faults">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">01</span>Fault-finding</p>
+          <h2 class="display" data-reveal>What it's doing, <em>and why.</em></h2>
+          <p class="section-head__lede" data-reveal>
+            Most 12V problems on boats come back to a handful of causes. These are the ones we see most,
+            and what is usually behind them.
+          </p>
+        </header>
+
+        <div class="chart" data-reveal>
+          <div class="chart__head" aria-hidden="true"><span>What it's doing</span><span>What's usually behind it</span></div>
+          <div class="chart__row">
+            <p class="chart__sym">Sounder or GPS resets when the motor starts</p>
+            <p class="chart__cause"><span class="chart__k">Usually</span>The voltage dips while the starter is cranking. The cable feeding the electronics is too small, or they share the battery that starts the motor.</p>
+          </div>
+          <div class="chart__row">
+            <p class="chart__sym">Battery flat after a week on the trailer</p>
+            <p class="chart__cause"><span class="chart__k">Usually</span>Something is drawing power with everything switched off, or the battery is past it. A draw test shows which.</p>
+          </div>
+          <div class="chart__row">
+            <p class="chart__sym">Lights flicker, or work when you wiggle a wire</p>
+            <p class="chart__cause"><span class="chart__k">Usually</span>A corroded join or a poor earth, often inside a connector that looks fine from the outside.</p>
+          </div>
+          <div class="chart__row">
+            <p class="chart__sym">A fuse that keeps blowing</p>
+            <p class="chart__cause"><span class="chart__k">Usually</span>Cable that has chafed through and is shorting, or a circuit being asked to carry more than it was built for.</p>
+          </div>
+          <div class="chart__row">
+            <p class="chart__sym">Green crust on terminals and plugs</p>
+            <p class="chart__cause"><span class="chart__k">Usually</span>Salt and moisture in a joint that was never sealed. It travels up inside the cable, where you can't see it.</p>
+          </div>
+          <div class="chart__row">
+            <p class="chart__sym">The radio is weak or noisy</p>
+            <p class="chart__cause"><span class="chart__k">Usually</span>A poor power supply, a damaged aerial lead or a bad connection at the plug.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         What we wire up, set out like the circuits on a panel
+         ================================================================== -->
+    <section class="section section--ink" id="included">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--light" data-reveal><span class="eyebrow__num">02</span>What's covered</p>
+          <h2 class="display display--light" data-reveal>What we <em>wire up.</em></h2>
+          <p class="section-head__lede section-head__lede--light" data-reveal>
+            New installs, upgrades and repairs on 12V systems. Everything is sized for the load,
+            protected by its own fuse and labelled so it can be followed later.
+          </p>
+        </header>
+
+        <ol class="circuits">
+          <li class="circuit" data-reveal>
+            <span class="circuit__id"><span class="led"></span>C01</span>
+            <h3>Dual-battery &amp; lithium setups</h3>
+            <p>Start and house batteries kept separate, with charging matched to the battery type, so the motor always has enough to start.</p>
+          </li>
+          <li class="circuit" data-reveal style="--d:.06s">
+            <span class="circuit__id"><span class="led"></span>C02</span>
+            <h3>Switch panels &amp; fuse blocks</h3>
+            <p>A proper panel with every circuit on its own fuse and a label you can read, in place of a row of mystery switches.</p>
+          </li>
+          <li class="circuit" data-reveal>
+            <span class="circuit__id"><span class="led"></span>C03</span>
+            <h3>Sounders, GPS &amp; chartplotters</h3>
+            <p>Units mounted where you can see them, transducers set up to read cleanly, and power fed from a fused supply.</p>
+          </li>
+          <li class="circuit" data-reveal style="--d:.06s">
+            <span class="circuit__id"><span class="led"></span>C04</span>
+            <h3>VHF radios &amp; aerials</h3>
+            <p>Radio, aerial and coax fitted and routed properly, so the set gets full power and a clear signal when it matters.</p>
+          </li>
+          <li class="circuit" data-reveal>
+            <span class="circuit__id"><span class="led"></span>C05</span>
+            <h3>Bow-mount electric motors</h3>
+            <p>Heavy cable sized for the length of the run, a breaker at the battery and a plug at the bow that stays dry.</p>
+          </li>
+          <li class="circuit" data-reveal style="--d:.06s">
+            <span class="circuit__id"><span class="led"></span>C06</span>
+            <h3>LED, nav &amp; deck lighting</h3>
+            <p>Navigation lights you can rely on, plus deck, cabin and underwater lighting on their own switched circuits.</p>
+          </li>
+          <li class="circuit" data-reveal>
+            <span class="circuit__id"><span class="led"></span>C07</span>
+            <h3>Bilge pumps &amp; float switches</h3>
+            <p>Pumps wired with an automatic float switch and a manual override, on a circuit that stays live when everything else is off.</p>
+          </li>
+          <li class="circuit" data-reveal style="--d:.06s">
+            <span class="circuit__id"><span class="led led--go"></span>C08</span>
+            <h3>Rewires &amp; fault-finding</h3>
+            <p>Dropouts, flat batteries and corroded joins traced back to the cause, or stripped out and started again when that is the better fix.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Voltage drop tool
+         ================================================================== -->
+    <section class="section section--paper" id="voltage-drop">
+      <div class="container">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="eyebrow" data-reveal><span class="eyebrow__num">03</span>Try it yourself</p>
+            <h2 class="display" data-reveal>Will it get <em>full voltage?</em></h2>
+          </div>
+          <p class="section-head__lede" data-reveal>
+            Thin cable over a long run loses voltage before it reaches the gear. That is why a sounder
+            resets or a pump runs slow. Put in your own numbers and see how much is lost.
+          </p>
+        </header>
+
+        <div class="vdrop" data-vdrop data-level="good" data-reveal>
+          <div class="vdrop__inputs">
+            <div class="vdrop__field">
+              <label for="vd-amps">Load</label>
+              <output class="vdrop__val" data-out="amps" for="vd-amps">5 A</output>
+              <input id="vd-amps" type="range" min="1" max="60" step="1" value="5" data-in="amps" aria-describedby="vd-amps-hint">
+              <p class="vdrop__hint" id="vd-amps-hint">How much current the gear draws. A sounder is 1 to 3 A, a bilge pump about 5 A, a bow-mount electric 40 A or more.</p>
+            </div>
+            <div class="vdrop__field">
+              <label for="vd-run">Cable run</label>
+              <output class="vdrop__val" data-out="run" for="vd-run">4 m</output>
+              <input id="vd-run" type="range" min="1" max="12" step="0.5" value="4" data-in="run" aria-describedby="vd-run-hint">
+              <p class="vdrop__hint" id="vd-run-hint">One way, from the battery to the gear, following the route the cable takes.</p>
+            </div>
+            <div class="vdrop__field">
+              <label for="vd-size">Cable size</label>
+              <span class="vdrop__val" aria-hidden="true">mm²</span>
+              <select id="vd-size" data-in="size" aria-describedby="vd-size-hint">
+                <option value="1.5">1.5 mm²</option>
+                <option value="2.5" selected>2.5 mm²</option>
+                <option value="4">4 mm²</option>
+                <option value="6">6 mm²</option>
+                <option value="10">10 mm²</option>
+                <option value="16">16 mm²</option>
+                <option value="25">25 mm²</option>
+                <option value="35">35 mm²</option>
+              </select>
+              <p class="vdrop__hint" id="vd-size-hint">The copper cross-section, not the outside width of the insulation.</p>
+            </div>
+          </div>
+
+          <div class="vdrop__result" aria-live="polite">
+            <p class="vdrop__k">Voltage lost on the way</p>
+            <p class="vdrop__big"><span data-out="pct">2.4</span><small>%</small></p>
+            <div>
+              <div class="vdrop__bar" aria-hidden="true"><i data-bar></i></div>
+              <div class="vdrop__scale" aria-hidden="true"><span>0</span><span>3%</span><span>10%</span></div>
+            </div>
+            <p class="vdrop__line"><span data-out="volts">0.29 V</span> lost, so a 12.6 V battery delivers <b data-out="arrive">12.3 V</b> at the gear.</p>
+            <p class="vdrop__verdict" data-out="verdict">Good for electronics and nav lights</p>
+            <p class="vdrop__tip" data-out="tip">This cable is big enough for this load over this run.</p>
+          </div>
+        </div>
+
+        <p class="fineprint" data-reveal>
+          A guide only. It assumes copper cable on a 12V system and counts the run out and back. Common marine
+          practice is to keep the loss to 3% or less for electronics and navigation lights, and 10% or less for
+          everything else. Cable also has to be rated for the current, and the fuse sized to protect the cable.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         What we find / what we leave
+         ================================================================== -->
+    <section class="section section--sand" id="standard">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">04</span>The standard</p>
+          <h2 class="display" data-reveal>Behind the dash, <em>before and after.</em></h2>
+        </header>
+
+        <div class="versus">
+          <div class="versus__col versus__col--bad" data-reveal>
+            <h3 class="versus__k">What we find</h3>
+            <ul>
+              <li>Untinned cable that has gone black inside the insulation</li>
+              <li>Twisted joins wrapped in tape</li>
+              <li>One fuse feeding everything, or no fuse at all</li>
+              <li>Connectors sitting down in the bilge</li>
+              <li>Nothing labelled, and no way to trace it</li>
+            </ul>
+          </div>
+          <div class="versus__col versus__col--good" data-reveal style="--d:.08s">
+            <h3 class="versus__k">What we leave</h3>
+            <ul>
+              <li>Tinned marine cable, sized for the load and the run</li>
+              <li>Crimped, heat-shrunk and sealed joins</li>
+              <li>Every circuit on its own fuse</li>
+              <li>Connections kept up high and dry</li>
+              <li>Labels at the panel and at the gear</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Questions
+         ================================================================== -->
+    <section class="section section--paper" id="faq">
+      <div class="container faq__grid">
+        <header class="section-head faq__head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">05</span>Good to know</p>
+          <h2 class="display" data-reveal>Electrical <em>questions.</em></h2>
+          <p class="section-head__lede" data-reveal>
+            Can't see yours here? Ask it in the <a href="{{book}}">booking form</a> or
+            <a href="#contact">give us a call</a>.
+          </p>
+        </header>
+
+        {{faq}}
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         The other services
+         ================================================================== -->
+    <section class="section section--sand" id="more">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__num">06</span>More from Joshos Marine</p>
+          <h2 class="display" data-reveal>The rest of <em>the rig.</em></h2>
+        </header>
+
+        {{others}}
+      </div>
+    </section>
+
+    {{contact}}
