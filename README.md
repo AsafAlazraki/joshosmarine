@@ -35,6 +35,36 @@ nothing is delivered until it is clicked once.
 If the service is unreachable or refuses a request, the form falls back to opening the
 customer's own email app with the details already written out, so a request is never lost.
 
+## Getting found in search
+
+What the site already does for search engines:
+
+- The page title, description and headings name the business and its services in the words
+  people search for.
+- A block near the top of `index.html` (`<script type="application/ld+json">`) describes the
+  business: name, phone, hours, ABN and services. `js/main.js` refreshes the contact details
+  in it from `js/config.js`, so `config.js` stays the one place to edit.
+- The FAQ questions and answers are marked up so search engines can read them as an FAQ.
+- `robots.txt` and `sitemap.xml` tell search engines the page exists. Update the `<lastmod>`
+  date in `sitemap.xml` after a significant change.
+- The `.txt` file with a long random name in the repository root is an
+  [IndexNow](https://www.indexnow.org) key. It lets the site tell Bing (which also feeds
+  DuckDuckGo and Yahoo) that the page has changed. Leave it in place.
+
+What has to be done from the business's own Google account, because nobody else can:
+
+1. **Google Search Console** (<https://search.google.com/search-console>): add
+   `https://joshosmarine.com.au` as a "URL prefix" property and choose the **HTML tag**
+   method. Paste the tag it gives you into the `<head>` of `index.html`, publish, then press
+   Verify. After that, submit `sitemap.xml` under Sitemaps and use URL inspection →
+   **Request indexing** on the home page.
+2. **Google Business Profile** (<https://business.google.com>): create the listing for
+   Joshos Marine with the phone number, hours, service area and this website. This is what
+   puts the business on Google Maps and in the panel beside the results for its name.
+
+Setting `area` in `js/config.js` (for example the suburbs or region covered) matters more than
+anything else on the page for local searches such as "boat trailer repairs near me".
+
 ## Previewing
 
 Open `index.html` in a browser, or serve the folder:
@@ -76,6 +106,8 @@ assets/fonts/         Self-hosted fonts (open licences in assets/fonts/licenses)
 assets/img/           Favicon, app icons, share image, chart-line background
 CNAME                 The custom domain for GitHub Pages
 sitemap.xml           Page list for search engines
+robots.txt            Tells search engines they may read the site
+<long name>.txt       IndexNow key (see "Getting found in search")
 ```
 
 The boat-and-trailer drawing and the wiring diagram are hand-written SVG inside `index.html`,

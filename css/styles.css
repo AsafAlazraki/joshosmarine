@@ -175,6 +175,10 @@ button { cursor: pointer; }
 }
 .eyebrow--light { color: var(--foam-300); }
 .eyebrow--ink { color: var(--ink-900); }
+/* The hero's descriptive line is the page's h1: two short rows at every width. */
+.hero__what { align-items: flex-start; line-height: 1.6; }
+.hero__what .eyebrow__led { flex: none; margin-top: .55em; }
+.hero__what-line { display: block; white-space: nowrap; }
 .eyebrow__num {
   display: inline-grid; place-items: center;
   min-width: 2.4em; padding: .3em .55em;
@@ -745,7 +749,7 @@ button { cursor: pointer; }
 }
 .svc:hover .svc__num { -webkit-text-stroke-color: var(--signal-500); color: var(--signal-500); }
 .svc__title {
-  max-width: 11ch;
+  max-width: 16ch; text-wrap: balance;
   font-family: var(--font-display); font-weight: 900;
   font-size: clamp(2rem, 1.5rem + 2vw, 2.875rem); line-height: .92;
   text-transform: uppercase; color: var(--ink-900);

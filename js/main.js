@@ -52,28 +52,22 @@
 
   /* Structured data for search engines, once real details are in place. */
   function structuredData() {
-    if (!cfg.phoneLink || cfg.phoneLink === PLACEHOLDER_PHONE) return;
-    var data = {
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Joshos Marine',
-      description: '12V installs, marine servicing, trailer work and custom fit-outs.',
-      url: location.origin + location.pathname,
-      telephone: cfg.phoneLink,
-      makesOffer: ['12V & marine electrical', 'Boat & outboard servicing', 'Boat trailer repairs', 'Custom boat fit-outs'].map(function (name) {
-        return { '@type': 'Offer', itemOffered: { '@type': 'Service', name: name } };
-      })
-    };
-    if (cfg.email) data.email = cfg.email;
-    if (cfg.area) data.areaServed = cfg.area;
-    if (cfg.abn) data.taxID = cfg.abn.replace(/\s+/g, '');
-    if (cfg.hoursForSearch && cfg.hoursForSearch.length) data.openingHours = cfg.hoursForSearch;
-    var same = [cfg.facebook, cfg.instagram].filter(Boolean);
-    if (same.length) data.sameAs = same;
-    var tag = doc.createElement('script');
-    tag.type = 'application/ld+json';
+    var tag = doc.getElementById('site-data');
+    if (!tag || !cfg.phoneLink || cfg.phoneLink === PLACEHOLDER_PHONE) return;
+    var data;
+    try { data = JSON.parse(tag.textContent); } catch (e) { return; }
+    var biz = (data['@graph'] || []).filter(function (node) { return node['@type'] === 'LocalBusiness'; })[0];
+    if (!biz) return;
+
+    // config.js wins over whatever is written out in the page.
+    var set = function (key, value) { if (value && value.length) biz[key] = value; else delete biz[key]; };
+    set('telephone', cfg.phoneLink);
+    set('email', cfg.email);
+    set('areaServed', cfg.area);
+    set('taxID', (cfg.abn || '').replace(/\s+/g, ''));
+    set('openingHours', cfg.hoursForSearch || []);
+    set('sameAs', [cfg.facebook, cfg.instagram].filter(Boolean));
     tag.textContent = JSON.stringify(data);
-    doc.head.appendChild(tag);
   }
 
   /* ------------------------------------------------------------------------
